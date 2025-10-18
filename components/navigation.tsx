@@ -1,69 +1,105 @@
 'use client';
 
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { cn } from '@/lib/utils';
+import { Menu, X } from 'lucide-react';
 
 export function Navigation() {
-  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
 
-  const links = [
-    { href: '/', label: 'Home' },
-    { href: '/about', label: 'About' },
-    { href: '/experience', label: 'Experience' },
-    { href: '/services', label: 'Services' },
-    { href: '/testimonials', label: 'Testimonials' },
-    { href: '/contact', label: 'Hire Me' },
-  ];
+  // prevent body scroll when menu open
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [open]);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        {/* Logo */}
-        <Link
-          href="/"
-          className="text-xl font-bold text-primary hover:text-accent transition-colors"
-        >
-          {'<Muhammad Ali Raza />'}
-        </Link>
-
-        {/* Navigation Links */}
-        <div className="hidden md:flex items-center gap-8">
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={cn(
-                'text-sm font-medium transition-colors hover:text-primary',
-                pathname === link.href
-                  ? 'text-primary border-b-2 border-primary pb-1'
-                  : 'text-muted-foreground',
-              )}
-            >
-              {link.label}
-            </Link>
-          ))}
+    <header className="w-full top-0 left-0 z-[9999]">
+      <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        {/* Logo / brand */}
+        <div>
+          <Link href="/" className="text-xl font-bold">
+            MyPortfolio
+          </Link>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Desktop links */}
+        <div className="hidden md:flex items-center gap-6">
+          <Link href="/about" className="font-medium">
+            About
+          </Link>
+          <Link href="/projects" className="font-medium">
+            Projects
+          </Link>
+          <Link href="/contact" className="font-medium">
+            Contact
+          </Link>
+        </div>
+
+        {/* Mobile hamburger */}
         <div className="md:hidden">
-          <button className="text-primary hover:text-accent transition-colors">
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
+          <button
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-expanded={open}
+            onClick={() => {
+              setOpen((s) => !s);
+              console.log('menu toggled', !open);
+            }}
+            className="p-2 rounded-md inline-flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-primary"
+          >
+            {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
+      </nav>
+
+      {/* Mobile menu overlay */}
+      <div
+        className={`fixed inset-0 z-[10000] pointer-events-auto transition-opacity ${
+          open ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
+        aria-hidden={!open}
+      >
+        {/* Backdrop */}
+        <div
+          className={`absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity ${
+            open ? 'opacity-100' : 'opacity-0'
+          }`}
+          onClick={() => setOpen(false)}
+        />
+
+        {/* Actual menu panel */}
+        <div className="absolute top-16 right-4 left-4 mx-auto max-w-sm bg-background border border-border rounded-xl p-6 shadow-2xl">
+          <div className="flex flex-col gap-4">
+            <Link
+              href="/about"
+              onClick={() => setOpen(false)}
+              className="block font-medium py-2"
+            >
+              About
+            </Link>
+            <Link
+              href="/projects"
+              onClick={() => setOpen(false)}
+              className="block font-medium py-2"
+            >
+              Projects
+            </Link>
+            <Link
+              href="/contact"
+              onClick={() => setOpen(false)}
+              className="block font-medium py-2"
+            >
+              Contact
+            </Link>
+          </div>
+        </div>
       </div>
-    </nav>
+    </header>
   );
 }
