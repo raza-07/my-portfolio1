@@ -70,7 +70,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="https://www.linkedin.com/in/muhammad-aliraza-a84975229"
+                  href="https://www.linkedin.com/in/m-aliraza-rao"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   LinkedIn

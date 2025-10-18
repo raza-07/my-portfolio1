@@ -72,7 +72,7 @@ export default function Contact() {
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      href: 'https://www.linkedin.com/in/muhammad-aliraza-a84975229/',
+      href: 'https://www.linkedin.com/in/m-aliraza-rao/',
     },
     { icon: Twitter, label: 'Twitter', href: 'https://twitter.com/arrazarao' },
   ];
