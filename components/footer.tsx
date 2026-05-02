@@ -66,7 +66,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <a
-                  href="https://github.com/raza-07"
+                  href="https://www.linkedin.com/in/radices-the-roots-8a673b2ba/"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   GitHub
@@ -74,7 +74,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="https://www.linkedin.com/in/m-aliraza-rao"
+                  href="https://www.linkedin.com/in/radices-the-roots-8a673b2ba/"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   LinkedIn
@@ -82,7 +82,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="https://x.com/arrazarao"
+                  href="https://www.linkedin.com/in/radices-the-roots-8a673b2ba/"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   Twitter

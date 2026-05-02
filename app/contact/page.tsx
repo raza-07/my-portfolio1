@@ -68,13 +68,13 @@ export default function Contact() {
   ];
 
   const socialLinks = [
-    { icon: Github, label: 'GitHub', href: 'https://github.com/raza-07' },
+    { icon: Github, label: 'GitHub', href: 'https://www.linkedin.com/in/radices-the-roots-8a673b2ba/' },
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      href: 'https://www.linkedin.com/in/m-aliraza-rao/',
+      href: 'https://www.linkedin.com/in/radices-the-roots-8a673b2ba/',
     },
-    { icon: Twitter, label: 'Twitter', href: 'https://twitter.com/arrazarao' },
+    { icon: Twitter, label: 'Twitter', href: 'https://www.linkedin.com/in/radices-the-roots-8a673b2ba/' },
   ];
 
   return (
@@ -198,7 +198,7 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-8 py-5 bg-background/50 border border-border/50 rounded-2xl text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all font-medium shadow-inner"
+                    className="w-full px-8 py-5 bg-background/50 border border-border/50 rounded-none text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all font-medium shadow-inner"
                     placeholder="Jane Doe"
                   />
                </div>
@@ -217,7 +217,7 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-8 py-5 bg-background/50 border border-border/50 rounded-2xl text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all font-medium shadow-inner"
+                    className="w-full px-8 py-5 bg-background/50 border border-border/50 rounded-none text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all font-medium shadow-inner"
                     placeholder="jane@company.com"
                   />
                </div>
@@ -231,8 +231,11 @@ export default function Contact() {
                       <button
                         key={cat}
                         type="button"
-                        onClick={() => setFormData(p => ({...p, subject: cat}))}
-                        className={`px-4 py-3 rounded-xl border text-xs font-bold uppercase tracking-widest transition-all ${formData.subject === cat ? 'bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/20 scale-105' : 'bg-background border-border/50 text-muted-foreground hover:border-primary/50'}`}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setFormData(prev => ({ ...prev, subject: cat }));
+                        }}
+                        className={`px-4 py-3 rounded-none border text-[10px] font-bold uppercase tracking-widest transition-all duration-300 ${formData.subject === cat ? 'bg-primary text-primary-foreground border-primary shadow-[0_0_20px_rgba(var(--primary-rgb),0.3)] scale-105 z-10' : 'bg-background border-border/50 text-muted-foreground hover:border-primary/50'}`}
                       >
                         {cat}
                       </button>

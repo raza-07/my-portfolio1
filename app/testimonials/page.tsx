@@ -164,19 +164,9 @@ export default function Testimonials() {
 
                   {/* Author */}
                   <div className="flex items-center gap-4 pt-8 border-t border-border/50">
-                    {testimonial.image ? (
-                      <div className="w-12 h-12 rounded-none overflow-hidden border border-primary/30">
-                        <img 
-                          src={testimonial.image} 
-                          alt={testimonial.name}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                    ) : (
-                      <div className="w-12 h-12 rounded-none bg-primary/10 flex items-center justify-center font-black text-primary border border-primary/30">
-                         {testimonial.name.split(' ').map(n => n[0]).join('')}
-                      </div>
-                    )}
+                    <div className="w-12 h-12 rounded-none bg-primary/10 flex items-center justify-center font-black text-primary border border-primary/30">
+                       {testimonial.name.split(' ').map(n => n[0]).join('')}
+                    </div>
                     <div>
                       <p className="font-bold text-foreground leading-none mb-1">
                         {testimonial.name}

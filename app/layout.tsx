@@ -8,9 +8,13 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Radices | Full Stack AI Automation Engineering",
+  title: "Radices | Full Stack AI Automation",
   description: "Radices is a premier AI Automation agency specializing in full-stack engineering and intelligent workflow solutions.",
   generator: "Radices AI",
+  icons: {
+    icon: "/icon.png",
+    apple: "/icon.png",
+  }
 }
 
 export default function RootLayout({
