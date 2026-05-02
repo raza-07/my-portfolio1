@@ -114,17 +114,35 @@ export default function About() {
                 </div>
               </div>
 
-              <div className="relative">
-                <div className="absolute inset-0 bg-primary/20 rounded-3xl blur-3xl -rotate-3 scale-105"></div>
-                <div className="relative bg-background border border-primary/20 rounded-3xl overflow-hidden shadow-2xl">
+              <div className="relative animate-scale-in delay-200">
+                <div className="absolute inset-0 bg-primary/20 rounded-none blur-3xl -rotate-3 scale-105"></div>
+                <div className="relative bg-background border border-primary/30 rounded-none overflow-hidden shadow-[0_0_50px_rgba(var(--primary-rgb),0.2)] group">
                   <img
-                    src="/radices_team_office_1777714876344.png"
+                    src="/radices_hq.png"
                     alt="Radices Headquarters"
-                    className="w-full aspect-[4/5] object-cover block"
+                    className="w-full aspect-[4/5] object-cover block group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
-                  <div className="absolute bottom-6 left-6 right-6">
-                    <p className="text-white font-bold italic tracking-tighter text-xl">Innovation Hub / 01</p>
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60"></div>
+                  
+                  {/* Branding Overlay */}
+                  <div className="absolute top-4 left-4 flex items-center gap-2 bg-background/60 backdrop-blur-md px-3 py-1.5 border border-primary/30">
+                    <span className="bg-primary text-primary-foreground px-1.5 py-0 text-sm font-black">R</span>
+                    <span className="text-xs font-bold tracking-tighter uppercase text-primary">Radices_Command</span>
+                  </div>
+
+                  {/* System Overlay */}
+                  <div className="absolute top-4 right-4 p-4 bg-background/40 backdrop-blur-md border border-primary/30 rounded-none text-[10px] font-mono text-primary space-y-1 animate-pulse">
+                    <p>{'>'} UPLINK: SECURE</p>
+                    <p>{'>'} AGENTS: 42 ACTIVE</p>
+                    <p>{'>'} LATENCY: 12ms</p>
+                    <p>{'>'} NEURAL_LOAD: 74%</p>
+                  </div>
+
+                  <div className="absolute bottom-8 left-8 right-8">
+                    <div className="flex items-center gap-3 mb-2">
+                       <div className="w-2 h-2 rounded-full bg-primary animate-ping"></div>
+                       <p className="text-primary font-black uppercase tracking-[0.2em] text-xs">Innovation Hub / 01</p>
+                    </div>
                   </div>
                 </div>
               </div>

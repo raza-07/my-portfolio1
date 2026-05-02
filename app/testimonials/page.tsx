@@ -8,11 +8,11 @@ import { Star } from 'lucide-react';
 export default function Testimonials() {
   const testimonials = [
     {
-      name: 'Sarah Johnson',
-      role: 'CEO, TechStart Inc.',
-      image: '/professional-woman.png',
+      name: 'Dr. Aris Vane',
+      role: 'Chief Innovation Officer, Quantum Dynamics',
+      image: '/senior_engineer.png',
       content:
-        'Working with this developer was a game-changer for our startup. They delivered a scalable solution ahead of schedule and were incredibly responsive to our needs. Highly recommended!',
+        'Radices redefined our entire logistical pipeline using autonomous agents. The level of technical sophistication and execution speed is unparalleled in the AI space.',
       rating: 5,
     },
     {
@@ -120,6 +120,7 @@ export default function Testimonials() {
                 {
                   name: 'Jonathan Sterling',
                   role: 'VP of Engineering, CloudCore',
+                  image: '/professional-man.png',
                   content:
                     'Radices didn\'t just build an AI agent; they architected a complete automation ecosystem that has reduced our operational overhead by 65% in less than a quarter.',
                   rating: 5,
@@ -127,6 +128,7 @@ export default function Testimonials() {
                 {
                   name: 'Dr. Elena Vance',
                   role: 'Head of Innovation, BioTech Systems',
+                  image: '/professional-woman.png',
                   content:
                     'The level of technical sophistication the Radices team brings to the table is unmatched. Their RAG implementation is the most secure and performant we\'ve seen.',
                   rating: 5,
@@ -134,6 +136,7 @@ export default function Testimonials() {
                 {
                   name: 'Marcus Thorne',
                   role: 'CEO, LogisticsOne',
+                  image: '/professional-man-2.png',
                   content:
                     'Working with Radices was the best strategic decision we made this year. Their full-stack AI approach is seamless, robust, and incredibly scalable.',
                   rating: 5,
@@ -161,9 +164,19 @@ export default function Testimonials() {
 
                   {/* Author */}
                   <div className="flex items-center gap-4 pt-8 border-t border-border/50">
-                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center font-black text-primary">
-                       {testimonial.name.split(' ').map(n => n[0]).join('')}
-                    </div>
+                    {testimonial.image ? (
+                      <div className="w-12 h-12 rounded-none overflow-hidden border border-primary/30">
+                        <img 
+                          src={testimonial.image} 
+                          alt={testimonial.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    ) : (
+                      <div className="w-12 h-12 rounded-none bg-primary/10 flex items-center justify-center font-black text-primary border border-primary/30">
+                         {testimonial.name.split(' ').map(n => n[0]).join('')}
+                      </div>
+                    )}
                     <div>
                       <p className="font-bold text-foreground leading-none mb-1">
                         {testimonial.name}
