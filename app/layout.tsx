@@ -1,11 +1,10 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
+import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
-const _geist = Geist({ subsets: ["latin"] })
-const _geistMono = Geist_Mono({ subsets: ["latin"] })
+const _geist = Geist({ subsets: ["latin"], variable: "--font-geist" })
+const _geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono" })
+const _serif = Instrument_Serif({ weight: "400", subsets: ["latin"], variable: "--font-serif" })
 
 export const metadata: Metadata = {
   title: "Radices | Full Stack AI Automation",
@@ -23,8 +22,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={`font-sans antialiased bg-background text-foreground`}>
+    <html lang="en" className={`dark ${_geist.variable} ${_geistMono.variable}`}>
+      <body className={`font-sans antialiased bg-black text-white relative overflow-x-hidden`}>
         {children}
         <Analytics />
       </body>
