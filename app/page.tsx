@@ -26,33 +26,29 @@ export default function Home() {
               <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/70">The Future of Automation</span>
             </div>
 
-            <h1 className="text-7xl md:text-9xl font-black tracking-tight leading-[0.9] animate-reveal">
+            <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-black tracking-tight leading-[0.95] md:leading-[0.9] animate-reveal">
               RADICES <br />
               <span className="text-primary">INTELLIGENCE</span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-white/60 max-w-2xl mx-auto leading-relaxed font-medium animate-fade-in delay-100">
+            <p className="text-lg md:text-2xl text-white/60 max-w-2xl mx-auto leading-relaxed font-medium animate-fade-in delay-100 px-4 sm:px-0">
               High-stakes AI engineering for the world's most ambitious teams. We turn complexity into autonomous competitive advantage.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8 animate-fade-in delay-200">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-12 animate-fade-in delay-200">
               <Link
                 href="/contact"
-                className="group relative px-10 py-4 bg-white text-black font-bold uppercase tracking-widest text-xs rounded-full overflow-hidden transition-all duration-300"
+                className="group relative px-12 py-5 bg-white text-black font-black uppercase tracking-[0.2em] text-[11px] rounded-full transition-all duration-500 hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:scale-105 active:scale-95"
               >
-                <div className="absolute inset-0 bg-primary translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-                <span className="relative flex items-center gap-2 group-hover:text-white transition-colors">
+                <span className="flex items-center gap-3">
                   Start Audit <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
               </Link>
               <Link
                 href="/services"
-                className="group relative px-10 py-4 bg-transparent border border-white/20 text-white font-bold uppercase tracking-widest text-xs rounded-full overflow-hidden transition-all duration-300 hover:border-white"
+                className="group relative px-12 py-5 bg-transparent border border-white/10 text-white font-black uppercase tracking-[0.2em] text-[11px] rounded-full backdrop-blur-sm transition-all duration-500 hover:border-white hover:bg-white/5 active:scale-95"
               >
-                <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-                <span className="relative group-hover:text-black transition-colors">
-                  Our Protocol
-                </span>
+                Our Protocol
               </Link>
             </div>
           </div>

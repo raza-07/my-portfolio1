@@ -10,7 +10,7 @@ export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
+    categories: [] as string[],
     message: '',
   });
 
@@ -29,20 +29,23 @@ export default function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const { name, email, subject, message } = formData;
+    const { name, email, categories, message } = formData;
+    const subjectLine = categories.length > 0 
+      ? `Audit Request: ${categories.join(', ')}` 
+      : `Message from ${name}`;
 
     // Create mailto link — this opens user's default email app
     const mailtoLink = `mailto:radices.technologies@gmail.com?subject=${encodeURIComponent(
-      subject || `Message from ${name}`,
+      subjectLine
     )}&body=${encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+      `Name: ${name}\nEmail: ${email}\nCategories: ${categories.join(', ')}\n\nMessage:\n${message}`
     )}`;
 
     window.location.href = mailtoLink;
 
     // Show confirmation message and reset form
     setSubmitted(true);
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    setFormData({ name: '', email: '', categories: [], message: '' });
     setTimeout(() => setSubmitted(false), 5000);
   };
 
@@ -175,7 +178,7 @@ export default function Contact() {
           <div className="max-w-4xl mx-auto bg-card border border-primary/20 rounded-none p-8 lg:p-20 shadow-[0_0_50px_rgba(0,0,0,0.3)] relative overflow-hidden group">
             <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-primary to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
             <div className="text-center mb-16">
-              <h2 className="text-5xl font-black mb-4 tracking-tight">
+              <h2 className="text-4xl md:text-5xl font-black mb-4 tracking-tight">
                 Request a Custom Audit
               </h2>
               <p className="text-muted-foreground text-lg font-medium">
@@ -233,9 +236,17 @@ export default function Contact() {
                         type="button"
                         onClick={(e) => {
                           e.preventDefault();
-                          setFormData(prev => ({ ...prev, subject: cat }));
+                          setFormData(prev => {
+                            const isSelected = prev.categories.includes(cat);
+                            return {
+                              ...prev,
+                              categories: isSelected 
+                                ? prev.categories.filter(c => c !== cat)
+                                : [...prev.categories, cat]
+                            };
+                          });
                         }}
-                        className={`px-4 py-3 rounded-none border text-[10px] font-bold uppercase tracking-widest transition-all duration-300 ${formData.subject === cat ? 'bg-primary text-primary-foreground border-primary shadow-[0_0_20px_rgba(var(--primary-rgb),0.3)] scale-105 z-10' : 'bg-background border-border/50 text-muted-foreground hover:border-primary/50'}`}
+                        className={`px-4 py-3 rounded-none border text-[10px] font-bold uppercase tracking-widest transition-all duration-300 ${formData.categories.includes(cat) ? 'bg-white text-black border-white shadow-[0_0_20px_rgba(255,255,255,0.3)] scale-105 z-10' : 'bg-background border-white/10 text-white/40 hover:border-primary/50 hover:text-white'}`}
                       >
                         {cat}
                       </button>

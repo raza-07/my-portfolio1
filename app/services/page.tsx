@@ -35,7 +35,7 @@ export default function Services() {
         <section className="py-32 px-6">
           <div className="max-w-5xl mx-auto space-y-12">
             <p className="text-[11px] font-black uppercase tracking-[0.4em] text-primary">The Protocol</p>
-            <h1 className="text-7xl md:text-9xl font-black tracking-tight leading-[0.9]">
+            <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-black tracking-tight leading-[0.95] md:leading-[0.9]">
               CORE <br />
               <span className="text-white/40">SOLUTIONS</span>
             </h1>

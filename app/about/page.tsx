@@ -13,11 +13,11 @@ export default function About() {
         <section className="py-32 px-6">
           <div className="max-w-5xl mx-auto space-y-12">
             <p className="text-[11px] font-black uppercase tracking-[0.4em] text-primary">The Agency</p>
-            <h1 className="text-7xl md:text-9xl font-black tracking-tight leading-[0.9]">
+            <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-black tracking-tight leading-[0.95] md:leading-[0.9]">
               RADICES <br />
               <span className="text-white/40">ENGINEERING</span>
             </h1>
-            <p className="text-2xl text-white/60 max-w-3xl leading-relaxed font-medium">
+            <p className="text-lg md:text-2xl text-white/60 max-w-3xl leading-relaxed font-medium">
               We bridge the gap between human intuition and machine precision. Radices engineers the cognitive foundations for the world's most ambitious brands.
             </p>
           </div>
