@@ -59,71 +59,73 @@ export default function About() {
       <Navigation />
       <main className="min-h-screen bg-background pt-24">
         {/* Hero Section */}
-        <section className="py-20 px-6">
+        <section className="py-20 px-6 relative overflow-hidden animate-fade-in-up">
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 -z-10 blur-[100px]"></div>
           <div className="max-w-4xl mx-auto">
-            <div className="space-y-6">
-              <div className="inline-block px-4 py-2 bg-card border border-primary/20 rounded-full">
-                <span className="text-sm text-primary font-medium">
-                  About Me
+            <div className="space-y-8">
+              <div className="inline-block px-4 py-2 bg-primary/10 border border-primary/20 rounded-full">
+                <span className="text-sm text-primary font-bold uppercase tracking-widest">
+                  Our Mission
                 </span>
               </div>
 
-              <h1 className="text-5xl lg:text-6xl font-bold text-balance leading-tight">
-                Passionate About Building
-                <span className="text-primary"> Digital Solutions</span>
+              <h1 className="text-6xl lg:text-7xl font-black text-balance leading-[1.1] tracking-tighter">
+                Engineering the <br />
+                <span className="text-primary">Intelligence</span> of Tomorrow
               </h1>
 
-              <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
-                With over 2 years of experience in full-stack development, I've
-                had the privilege of working with startups and established
-                companies to bring their visions to life through elegant,
-                scalable web applications.
+              <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed font-medium">
+                Radices was founded on the principle that automation should be more than just scripts. We build intelligent systems that learn, adapt, and drive exponential growth for our partners.
               </p>
             </div>
           </div>
         </section>
 
         {/* Story Section */}
-        <section className="py-20 px-6 bg-card/50">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6">
-                <h2 className="text-3xl font-bold">My Journey</h2>
+        <section className="py-24 px-6 bg-secondary/30 animate-fade-in-up delay-200">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <div className="space-y-8">
+                <h2 className="text-4xl font-black tracking-tight">The Radices Story</h2>
 
-                <div className="space-y-4 text-muted-foreground leading-relaxed">
+                <div className="space-y-6 text-muted-foreground text-lg leading-relaxed font-medium">
                   <p>
-                    I started my journey in web development with a curiosity
-                    about how things work on the internet. What began as a hobby
-                    quickly turned into a passion, and I decided to pursue it
-                    professionally.
+                    In an era of rapid technological shift, Radices emerged as a response to the growing complexity of AI integration. We saw businesses struggling to bridge the gap between legacy systems and the promise of artificial intelligence.
                   </p>
 
                   <p>
-                    Over the years, I've worked on diverse projects ranging from
-                    e-commerce platforms to real-time collaboration tools. Each
-                    project has taught me something valuable about building
-                    software that users love.
+                    Our team of engineers and AI researchers came together to create a new kind of agency—one that combines deep full-stack expertise with cutting-edge automation techniques.
                   </p>
 
                   <p>
-                    Today, I focus on creating solutions that are not just
-                    functional, but delightful to use. I believe great software
-                    is the intersection of beautiful design, solid engineering,
-                    and deep understanding of user needs.
+                    Today, Radices stands at the forefront of AI Automation, helping industry leaders automate their most complex workflows and reclaim thousands of hours in human productivity.
                   </p>
+                </div>
+                
+                <div className="flex gap-8 pt-4">
+                  <div>
+                    <p className="text-3xl font-black text-primary">3+</p>
+                    <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Years Innovation</p>
+                  </div>
+                  <div>
+                    <p className="text-3xl font-black text-primary">15+</p>
+                    <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">AI Specialists</p>
+                  </div>
                 </div>
               </div>
 
-              <div className="relative hidden lg:block">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent rounded-2xl blur-3xl"></div>
-
-                {/* Replace "/images/me.jpg" with your actual image path */}
-                <div className="relative bg-background border border-primary/20 rounded-2xl overflow-hidden w-full max-w-[420px] h-[520px] mx-auto">
+              <div className="relative">
+                <div className="absolute inset-0 bg-primary/20 rounded-3xl blur-3xl -rotate-3 scale-105"></div>
+                <div className="relative bg-background border border-primary/20 rounded-3xl overflow-hidden shadow-2xl">
                   <img
-                    src="image.png"
-                    alt="My photo"
-                    className="w-full h-full object-cover block"
+                    src="/radices_team_office_1777714876344.png"
+                    alt="Radices Headquarters"
+                    className="w-full aspect-[4/5] object-cover block"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+                  <div className="absolute bottom-6 left-6 right-6">
+                    <p className="text-white font-bold italic tracking-tighter text-xl">Innovation Hub / 01</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -131,30 +133,64 @@ export default function About() {
         </section>
 
         {/* Skills Section */}
-        <section className="py-20 px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">Skills & Expertise</h2>
-              <p className="text-muted-foreground">
-                A comprehensive toolkit built through years of hands-on
-                experience
+        <section className="py-24 px-6 animate-fade-in-up delay-300">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-black mb-4 tracking-tight">Our Technical Arsenal</h2>
+              <p className="text-muted-foreground text-lg font-medium">
+                We leverage the most advanced technologies to build your competitive edge.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {skills.map((skillGroup, idx) => (
+              {[
+                {
+                  category: 'AI & Machine Learning',
+                  items: [
+                    'OpenAI / Anthropic API',
+                    'LangChain / LlamaIndex',
+                    'Vector DBs (Pinecone, Weaviate)',
+                    'Fine-tuning LLMs',
+                    'Computer Vision',
+                    'Natural Language Processing',
+                  ],
+                },
+                {
+                  category: 'Full Stack Engineering',
+                  items: [
+                    'Next.js / React',
+                    'Python (FastAPI, Django)',
+                    'Node.js / TypeScript',
+                    'PostgreSQL / Redis',
+                    'GraphQL / gRPC',
+                    'Microservices Architecture',
+                  ],
+                },
+                {
+                  category: 'Automation & DevOps',
+                  items: [
+                    'Docker / Kubernetes',
+                    'CI/CD Pipelines',
+                    'AWS / GCP / Azure',
+                    'n8n / Make.com / Zapier',
+                    'Infrastructure as Code (Terraform)',
+                    'Automated Testing (Playwright)',
+                  ],
+                },
+              ].map((skillGroup, idx) => (
                 <div
                   key={idx}
-                  className="bg-card border border-border rounded-xl p-6"
+                  className="bg-card border border-border/50 rounded-2xl p-8 hover:border-primary/50 transition-all duration-300 shadow-sm"
                 >
-                  <h3 className="text-lg font-semibold mb-4 text-primary">
+                  <h3 className="text-xl font-bold mb-6 text-primary flex items-center gap-2">
+                    <span className="w-2 h-2 bg-primary rounded-full"></span>
                     {skillGroup.category}
                   </h3>
-                  <ul className="space-y-3">
+                  <ul className="space-y-4">
                     {skillGroup.items.map((skill, skillIdx) => (
-                      <li key={skillIdx} className="flex items-center gap-3">
-                        <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
-                        <span className="text-sm text-muted-foreground">
+                      <li key={skillIdx} className="flex items-center gap-3 group">
+                        <CheckCircle2 className="w-5 h-5 text-primary/50 group-hover:text-primary transition-colors flex-shrink-0" />
+                        <span className="text-base text-muted-foreground font-medium group-hover:text-foreground transition-colors">
                           {skill}
                         </span>
                       </li>
@@ -167,25 +203,46 @@ export default function About() {
         </section>
 
         {/* Values Section */}
-        <section className="py-20 px-6 bg-card/50">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold mb-4">My Approach</h2>
-              <p className="text-muted-foreground">
-                Core principles that guide every project I work on
+        <section className="py-24 px-6 bg-primary/5">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-black mb-4 tracking-tight">The Radices Way</h2>
+              <p className="text-muted-foreground text-lg font-medium">
+                Our core principles that define every interaction and implementation.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {values.map((value, idx) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {[
+                {
+                  title: 'Intelligence-First',
+                  description:
+                    'We don\'t just automate; we build systems that think. Every solution is designed to add cognitive value to your business.',
+                },
+                {
+                  title: 'Scalability by Design',
+                  description:
+                    'Our architectures are built to grow. Whether you process 100 or 1,000,000 requests, our systems handle it with ease.',
+                },
+                {
+                  title: 'Data Sovereignty',
+                  description:
+                    'We prioritize the security and privacy of your proprietary data, ensuring all AI implementations are secure and compliant.',
+                },
+                {
+                  title: 'Radical Transparency',
+                  description:
+                    'We believe in clear communication and honest timelines. You\'ll always know exactly where your project stands.',
+                },
+              ].map((value, idx) => (
                 <div
                   key={idx}
-                  className="bg-background border border-border rounded-xl p-6"
+                  className="bg-background border border-border/50 rounded-2xl p-8 hover:shadow-lg transition-all duration-300"
                 >
-                  <h3 className="text-lg font-semibold mb-2 text-primary">
+                  <h3 className="text-2xl font-bold mb-4 text-primary">
                     {value.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-muted-foreground text-lg leading-relaxed font-medium">
                     {value.description}
                   </p>
                 </div>
@@ -195,20 +252,20 @@ export default function About() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 px-6">
+        <section className="py-24 px-6 relative overflow-hidden">
+          <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-primary/10 to-transparent -z-10"></div>
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6">
-              Let's Create Something Great
+            <h2 className="text-5xl font-black mb-8 tracking-tight">
+              Join the Automation Revolution
             </h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              I'm always interested in hearing about new projects and
-              opportunities.
+            <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto font-medium">
+              We&apos;re looking for ambitious partners who are ready to redefine their industry with AI.
             </p>
             <a
               href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground rounded-lg hover:bg-accent transition-colors font-medium text-lg"
+              className="inline-flex items-center justify-center px-10 py-5 bg-primary text-primary-foreground rounded-full hover:scale-105 transition-all duration-300 font-bold text-xl shadow-xl shadow-primary/20"
             >
-              Get in Touch
+              Start Your Journey
             </a>
           </div>
         </section>

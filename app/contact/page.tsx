@@ -32,7 +32,7 @@ export default function Contact() {
     const { name, email, subject, message } = formData;
 
     // Create mailto link — this opens user's default email app
-    const mailtoLink = `mailto:arrazarao@gmail.com?subject=${encodeURIComponent(
+    const mailtoLink = `mailto:radices.technologies@gmail.com?subject=${encodeURIComponent(
       subject || `Message from ${name}`,
     )}&body=${encodeURIComponent(
       `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
@@ -50,8 +50,8 @@ export default function Contact() {
     {
       icon: Mail,
       label: 'Email',
-      value: 'arrazarao@gmail.com',
-      href: 'mailto:arrazarao@gmail.com',
+      value: 'radices.technologies@gmail.com',
+      href: 'mailto:radices.technologies@gmail.com',
     },
     {
       icon: Phone,
@@ -82,47 +82,64 @@ export default function Contact() {
       <Navigation />
       <main className="min-h-screen bg-background pt-24">
         {/* Hero Section */}
-        <section className="py-20 px-6">
+        <section className="py-20 px-6 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(var(--primary-rgb),0.05),transparent_70%)] -z-10"></div>
           <div className="max-w-4xl mx-auto">
-            <div className="space-y-6">
-              <div className="inline-block px-4 py-2 bg-card border border-primary/20 rounded-full">
-                <span className="text-sm text-primary font-medium">
-                  Get in Touch
+            <div className="space-y-8">
+              <div className="inline-block px-4 py-2 bg-primary/10 border border-primary/20 rounded-full">
+                <span className="text-sm text-primary font-bold uppercase tracking-widest">
+                  Connect with Us
                 </span>
               </div>
 
-              <h1 className="text-5xl lg:text-6xl font-bold text-balance leading-tight">
-                Let's Work
-                <span className="text-primary"> Together</span>
+              <h1 className="text-6xl lg:text-7xl font-black text-balance leading-[1.1] tracking-tighter">
+                Scale Your <br />
+                <span className="text-primary">Intelligence</span>
               </h1>
 
-              <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
-                Have a project in mind? I'd love to hear about it. Get in touch
-                and let's create something amazing together.
+              <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed font-medium">
+                Ready to transform your business with AI? Our engineers are standing by to audit your workflows and design your automated future.
               </p>
             </div>
           </div>
         </section>
 
         {/* Contact Info Cards */}
-        <section className="py-20 px-6 bg-card/50">
+        <section className="py-20 px-6 bg-secondary/30">
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-              {contactInfo.map((info, idx) => {
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+              {[
+                {
+                  icon: Mail,
+                  label: 'General Inquiries',
+                  value: 'radices.technologies@gmail.com',
+                  href: 'mailto:radices.technologies@gmail.com',
+                },
+                {
+                  icon: Phone,
+                  label: 'Technical Support',
+                  value: '+1 (800) RAD-ICES',
+                  href: 'tel:+18007234237',
+                },
+                {
+                  icon: MapPin,
+                  label: 'Innovation Hub',
+                  value: 'Global / Remote-First',
+                  href: '#',
+                },
+              ].map((info, idx) => {
                 const Icon = info.icon;
                 return (
                   <a
                     key={idx}
                     href={info.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-background border border-border rounded-xl p-8 hover:border-primary/50 transition-colors group"
+                    className="bg-background border border-border/50 rounded-2xl p-10 hover:border-primary/50 transition-all duration-300 group shadow-sm hover:shadow-xl"
                   >
-                    <Icon className="w-8 h-8 text-primary mb-4 group-hover:scale-110 transition-transform" />
-                    <p className="text-sm text-muted-foreground mb-2">
+                    <Icon className="w-10 h-10 text-primary mb-6 group-hover:scale-110 transition-transform" />
+                    <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-2">
                       {info.label}
                     </p>
-                    <p className="text-lg font-semibold text-foreground">
+                    <p className="text-base font-bold text-foreground">
                       {info.value}
                     </p>
                   </a>
@@ -130,8 +147,8 @@ export default function Contact() {
               })}
             </div>
 
-            {/* Social Links */}
-            <div className="flex justify-center gap-4">
+            { socialLinks.length > 0 && (
+            <div className="flex justify-center gap-6">
               {socialLinks.map((social, idx) => {
                 const Icon = social.icon;
                 return (
@@ -140,165 +157,166 @@ export default function Contact() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 rounded-lg bg-background border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-colors"
+                    className="w-14 h-14 rounded-2xl bg-background border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 hover:shadow-lg transition-all duration-300"
                     aria-label={social.label}
                   >
-                    <Icon className="w-5 h-5" />
+                    <Icon className="w-6 h-6" />
                   </a>
                 );
               })}
             </div>
+            )}
           </div>
         </section>
 
         {/* Contact Form Section */}
-        <section className="py-20 px-6">
-          <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl font-bold mb-12 text-center">
-              Send Me a Message
-            </h2>
+        <section className="py-24 px-6 relative overflow-hidden animate-fade-in-up delay-200">
+           <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(var(--primary-rgb),0.05),transparent_70%)] -z-10"></div>
+          <div className="max-w-4xl mx-auto bg-card border border-primary/20 rounded-none p-8 lg:p-20 shadow-[0_0_50px_rgba(0,0,0,0.3)] relative overflow-hidden group">
+            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-primary to-transparent opacity-50 group-hover:opacity-100 transition-opacity"></div>
+            <div className="text-center mb-16">
+              <h2 className="text-5xl font-black mb-4 tracking-tight">
+                Request a Custom Audit
+              </h2>
+              <p className="text-muted-foreground text-lg font-medium">
+                Provide your details and our AI engineers will analyze your technical bottleneck.
+              </p>
+            </div>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-foreground mb-2"
-                >
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 bg-card border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary transition-colors"
-                  placeholder="Your name"
-                />
-              </div>
+            <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-10">
+               <div className="space-y-4">
+                  <label
+                    htmlFor="name"
+                    className="text-sm font-bold uppercase tracking-widest text-primary ml-1"
+                  >
+                    Full Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-8 py-5 bg-background/50 border border-border/50 rounded-2xl text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all font-medium shadow-inner"
+                    placeholder="Jane Doe"
+                  />
+               </div>
 
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-foreground mb-2"
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 bg-card border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary transition-colors"
-                  placeholder="your@email.com"
-                />
-              </div>
+               <div className="space-y-4">
+                  <label
+                    htmlFor="email"
+                    className="text-sm font-bold uppercase tracking-widest text-primary ml-1"
+                  >
+                    Company Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-8 py-5 bg-background/50 border border-border/50 rounded-2xl text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all font-medium shadow-inner"
+                    placeholder="jane@company.com"
+                  />
+               </div>
 
-              <div>
-                <label
-                  htmlFor="subject"
-                  className="block text-sm font-medium text-foreground mb-2"
-                >
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 bg-card border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary transition-colors"
-                  placeholder="Project inquiry"
-                />
-              </div>
+               <div className="md:col-span-2 space-y-4">
+                  <label className="text-sm font-bold uppercase tracking-widest text-primary ml-1">
+                    Project Category
+                  </label>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    {['AI Agents', 'RAG Systems', 'LLM Fine-tuning', 'Full Stack'].map((cat) => (
+                      <button
+                        key={cat}
+                        type="button"
+                        onClick={() => setFormData(p => ({...p, subject: cat}))}
+                        className={`px-4 py-3 rounded-xl border text-xs font-bold uppercase tracking-widest transition-all ${formData.subject === cat ? 'bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/20 scale-105' : 'bg-background border-border/50 text-muted-foreground hover:border-primary/50'}`}
+                      >
+                        {cat}
+                      </button>
+                    ))}
+                  </div>
+               </div>
 
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-foreground mb-2"
-                >
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={6}
-                  className="w-full px-4 py-3 bg-card border border-border rounded-lg text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary transition-colors resize-none"
-                  placeholder="Tell me about your project..."
-                ></textarea>
-              </div>
+               <div className="md:col-span-2 space-y-4">
+                  <label
+                    htmlFor="message"
+                    className="text-sm font-bold uppercase tracking-widest text-primary ml-1"
+                  >
+                    Briefly describe your current technical stack and automation goals
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    rows={6}
+                    className="w-full px-8 py-5 bg-background/50 border border-border/50 rounded-3xl text-foreground placeholder-muted-foreground focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all font-medium resize-none shadow-inner"
+                    placeholder="e.g., We are using Next.js and want to integrate a secure RAG pipeline for our internal documentation..."
+                  ></textarea>
+               </div>
 
-              <button
-                type="submit"
-                className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-accent transition-colors font-medium text-lg"
-              >
-                Send Message
-              </button>
+               <div className="md:col-span-2">
+                 <button
+                   type="submit"
+                   className="w-full px-10 py-6 bg-primary text-primary-foreground rounded-2xl hover:scale-[1.01] active:scale-[0.98] transition-all duration-300 font-black text-2xl shadow-2xl shadow-primary/30 flex items-center justify-center gap-4 group/btn"
+                 >
+                   Deploy Audit Request
+                   <span className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center group-hover/btn:translate-x-2 transition-transform">→</span>
+                 </button>
 
-              {submitted && (
-                <div className="p-4 bg-primary/10 border border-primary/30 rounded-lg text-primary text-center">
-                  Your email app has opened — please send your message!
-                </div>
-              )}
+                 {submitted && (
+                   <div className="mt-8 p-6 bg-primary/10 border border-primary/30 rounded-2xl text-primary text-center font-bold animate-pulse">
+                      Neural uplink established. Redirecting to core mailbox...
+                   </div>
+                 )}
+               </div>
             </form>
           </div>
         </section>
 
         {/* FAQ Section */}
-        <section className="py-20 px-6 bg-card/50">
+        <section className="py-24 px-6 bg-primary/5">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold mb-12 text-center">
-              Frequently Asked Questions
+            <h2 className="text-4xl font-black mb-16 text-center tracking-tight">
+              Automation Intelligence FAQ
             </h2>
 
-            <div className="space-y-6">
+            <div className="grid grid-cols-1 gap-6">
               {[
                 {
-                  question: "What's your typical project timeline?",
+                  question: "How long does a typical AI implementation take?",
                   answer:
-                    'Small projects usually take 2–4 weeks, while larger apps can take 2–3 months. I provide detailed timelines during consultation.',
+                    'Our Innovation Sprints typically deliver a production-ready agent in 4-6 weeks. Larger enterprise-wide integrations can span 3-6 months depending on data complexity.',
                 },
                 {
-                  question: 'Do you offer ongoing support?',
+                  question: 'Is our proprietary data safe with your AI solutions?',
                   answer:
-                    'Yes — I offer retainer packages for maintenance, updates, and support after launch.',
+                    'Absolutely. We specialize in private, on-premise or VPC-hosted LLMs and secure RAG pipelines that ensure your data never leaves your controlled environment.',
                 },
                 {
-                  question: "What's your development process?",
+                  question: 'Do you work with open-source models like Llama or Mistral?',
                   answer:
-                    'I follow a clear process: discovery → planning → development → testing → deployment → ongoing support.',
+                    'Yes, we are model-agnostic. We help you choose the best model for your use case—whether it is a high-performance frontier model (GPT-4, Claude) or a cost-effective, fine-tuned open-source model.',
                 },
                 {
-                  question: 'Can you work with existing codebases?',
+                  question: 'What is your post-deployment support model?',
                   answer:
-                    'Absolutely. I can refactor, optimize, or extend existing systems while maintaining stability.',
-                },
-                {
-                  question: 'What technologies do you specialize in?',
-                  answer:
-                    'React, Next.js, Node.js, TypeScript, TailwindCSS, and cloud deployments.',
-                },
-                {
-                  question: 'How do you handle project communication?',
-                  answer:
-                    'Weekly updates and consistent communication through your preferred platform — Slack, Email, or Notion.',
+                    'We offer continuous monitoring and fine-tuning retainers. AI systems need to adapt as data changes, and we ensure your agents stay accurate and efficient.',
                 },
               ].map((faq, idx) => (
                 <div
                   key={idx}
-                  className="bg-background border border-border rounded-xl p-6"
+                  className="bg-background border border-border/50 rounded-2xl p-8 hover:border-primary/50 transition-all duration-300 shadow-sm"
                 >
-                  <h3 className="text-lg font-semibold text-primary mb-3">
+                  <h3 className="text-xl font-bold text-primary mb-4 flex items-center gap-3">
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full"></span>
                     {faq.question}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-muted-foreground text-lg leading-relaxed font-medium">
                     {faq.answer}
                   </p>
                 </div>
@@ -308,15 +326,18 @@ export default function Contact() {
         </section>
 
         {/* Final CTA */}
-        <section className="py-20 px-6">
+        <section className="py-32 px-6 relative overflow-hidden">
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_100%,rgba(var(--primary-rgb),0.1),transparent_70%)] -z-10"></div>
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6">
-              Ready to Start Your Project?
+            <h2 className="text-5xl font-black mb-8 tracking-tight">
+              The AI Future Won&apos;t Wait
             </h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              Fill out the form above or contact me directly. I’m excited to
-              collaborate on your next big idea!
+            <p className="text-xl text-muted-foreground mb-12 font-medium">
+              Join Radices and lead the charge in full-stack AI automation engineering.
             </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-6">
+               <a href="mailto:radices.technologies@gmail.com" className="px-10 py-5 bg-secondary text-secondary-foreground rounded-full font-bold hover:bg-secondary/80 transition-all">Email Us Directly</a>
+            </div>
           </div>
         </section>
       </main>

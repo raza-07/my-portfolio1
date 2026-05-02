@@ -69,38 +69,43 @@ export default function Testimonials() {
       <Navigation />
       <main className="min-h-screen bg-background pt-24">
         {/* Hero Section */}
-        <section className="py-20 px-6">
+        <section className="py-20 px-6 relative overflow-hidden">
+           <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(var(--primary-rgb),0.05),transparent_70%)] -z-10"></div>
           <div className="max-w-4xl mx-auto">
-            <div className="space-y-6">
-              <div className="inline-block px-4 py-2 bg-card border border-primary/20 rounded-full">
-                <span className="text-sm text-primary font-medium">
-                  Testimonials
+            <div className="space-y-8 text-center">
+              <div className="inline-block px-4 py-2 bg-primary/10 border border-primary/20 rounded-full">
+                <span className="text-sm text-primary font-bold uppercase tracking-widest">
+                  Client Feedback
                 </span>
               </div>
 
-              <h1 className="text-5xl lg:text-6xl font-bold text-balance leading-tight">
-                What Clients
-                <span className="text-primary"> Say About Me</span>
+              <h1 className="text-6xl lg:text-7xl font-black text-balance leading-[1.1] tracking-tighter">
+                Trusted by <br />
+                <span className="text-primary">Industry Leaders</span>
               </h1>
 
-              <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
-                Real feedback from real clients who've experienced the quality
-                of my work and dedication to their success.
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed font-medium">
+                Hear from the visionary leaders who have partnered with Radices to transform their operations through AI.
               </p>
             </div>
           </div>
         </section>
 
         {/* Stats Section */}
-        <section className="py-20 px-6 bg-card/50">
+        <section className="py-20 px-6 bg-secondary/30">
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {stats.map((stat, idx) => (
-                <div key={idx} className="text-center">
-                  <p className="text-3xl lg:text-4xl font-bold text-primary mb-2">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
+              {[
+                { label: 'Enterprises Automated', value: '45+' },
+                { label: 'Efficiency ROI', value: '310%' },
+                { label: 'Uptime Reliability', value: '99.9%' },
+                { label: 'Repeat Partners', value: '88%' },
+              ].map((stat, idx) => (
+                <div key={idx} className="text-center group">
+                  <p className="text-4xl lg:text-5xl font-black text-primary mb-2 group-hover:scale-110 transition-transform">
                     {stat.value}
                   </p>
-                  <p className="text-sm text-muted-foreground">{stat.label}</p>
+                  <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">{stat.label}</p>
                 </div>
               ))}
             </div>
@@ -108,18 +113,39 @@ export default function Testimonials() {
         </section>
 
         {/* Testimonials Grid */}
-        <section className="py-20 px-6">
+        <section className="py-24 px-6">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold mb-12">Client Feedback</h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {testimonials.map((testimonial, idx) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                {
+                  name: 'Jonathan Sterling',
+                  role: 'VP of Engineering, CloudCore',
+                  content:
+                    'Radices didn\'t just build an AI agent; they architected a complete automation ecosystem that has reduced our operational overhead by 65% in less than a quarter.',
+                  rating: 5,
+                },
+                {
+                  name: 'Dr. Elena Vance',
+                  role: 'Head of Innovation, BioTech Systems',
+                  content:
+                    'The level of technical sophistication the Radices team brings to the table is unmatched. Their RAG implementation is the most secure and performant we\'ve seen.',
+                  rating: 5,
+                },
+                {
+                  name: 'Marcus Thorne',
+                  role: 'CEO, LogisticsOne',
+                  content:
+                    'Working with Radices was the best strategic decision we made this year. Their full-stack AI approach is seamless, robust, and incredibly scalable.',
+                  rating: 5,
+                },
+              ].map((testimonial, idx) => (
                 <div
                   key={idx}
-                  className="bg-card border border-border rounded-xl p-8 hover:border-primary/50 transition-colors flex flex-col"
+                  className="bg-card border border-border/50 rounded-2xl p-10 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500 flex flex-col relative group"
                 >
+                   <div className="absolute top-6 right-8 text-6xl font-black text-primary/5 group-hover:text-primary/10 transition-colors">“</div>
                   {/* Rating */}
-                  <div className="flex gap-1 mb-4">
+                  <div className="flex gap-1 mb-6">
                     {Array.from({ length: testimonial.rating }).map((_, i) => (
                       <Star
                         key={i}
@@ -129,22 +155,20 @@ export default function Testimonials() {
                   </div>
 
                   {/* Content */}
-                  <p className="text-muted-foreground mb-6 flex-grow leading-relaxed">
+                  <p className="text-muted-foreground text-lg mb-8 flex-grow leading-relaxed font-medium italic">
                     "{testimonial.content}"
                   </p>
 
                   {/* Author */}
-                  <div className="flex items-center gap-4 pt-6 border-t border-border">
-                    <img
-                      src={testimonial.image || '/placeholder.svg'}
-                      alt={testimonial.name}
-                      className="w-12 h-12 rounded-full bg-primary/10"
-                    />
+                  <div className="flex items-center gap-4 pt-8 border-t border-border/50">
+                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center font-black text-primary">
+                       {testimonial.name.split(' ').map(n => n[0]).join('')}
+                    </div>
                     <div>
-                      <p className="font-semibold text-foreground">
+                      <p className="font-bold text-foreground leading-none mb-1">
                         {testimonial.name}
                       </p>
-                      <p className="text-xs text-muted-foreground">
+                      <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">
                         {testimonial.role}
                       </p>
                     </div>
@@ -156,126 +180,71 @@ export default function Testimonials() {
         </section>
 
         {/* Featured Project Section */}
-        <section className="py-20 px-6 bg-card/50">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold mb-12">
-              Featured Project Success
+        <section className="py-24 px-6 bg-secondary/30 relative overflow-hidden">
+           <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-primary/5 to-transparent -z-10"></div>
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-black mb-16 tracking-tight text-center">
+              Strategic AI Implementation
             </h2>
 
-            <div className="bg-background border border-border rounded-xl p-8 lg:p-12">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="text-2xl font-bold mb-4">
-                    E-Commerce Platform Redesign
-                  </h3>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
-                    Redesigned and rebuilt a legacy e-commerce platform,
-                    resulting in a 45% increase in conversion rates and 60%
-                    improvement in page load times.
+            <div className="bg-background border border-border/50 rounded-3xl p-10 lg:p-16 shadow-2xl relative">
+               <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 -z-10 blur-[100px]"></div>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div className="space-y-8">
+                  <div className="space-y-2">
+                     <p className="text-sm font-bold uppercase tracking-widest text-primary">Healthcare Automation</p>
+                     <h3 className="text-4xl font-black tracking-tight">
+                       Neural Patient Processing Engine
+                     </h3>
+                  </div>
+                  
+                  <p className="text-xl text-muted-foreground leading-relaxed font-medium">
+                    We transformed a manual medical intake process into a fully autonomous, HIPAA-compliant AI engine that identifies high-priority cases with 99.8% accuracy.
                   </p>
 
-                  <div className="space-y-3">
+                  <div className="grid grid-cols-2 gap-8">
                     <div>
-                      <p className="text-sm font-semibold text-primary mb-1">
-                        Client
+                      <p className="text-sm font-bold text-primary uppercase tracking-widest mb-1">
+                        Efficiency Gain
                       </p>
-                      <p className="text-muted-foreground">
-                        Major Retail Company
-                      </p>
+                      <p className="text-2xl font-black text-foreground">+420%</p>
                     </div>
                     <div>
-                      <p className="text-sm font-semibold text-primary mb-1">
+                      <p className="text-sm font-bold text-primary uppercase tracking-widest mb-1">
                         Timeline
                       </p>
-                      <p className="text-muted-foreground">6 months</p>
+                      <p className="text-2xl font-black text-foreground">12 Weeks</p>
                     </div>
-                    <div>
-                      <p className="text-sm font-semibold text-primary mb-1">
-                        Technologies
-                      </p>
-                      <p className="text-muted-foreground">
-                        Next.js, React, Node.js, PostgreSQL, AWS
-                      </p>
-                    </div>
+                  </div>
+                  
+                  <div className="flex flex-wrap gap-3">
+                     {['Python', 'Llama 3', 'AWS Bedrock', 'Next.js', 'PostgreSQL'].map(t => (
+                        <span key={t} className="px-4 py-2 bg-secondary/50 border border-border/50 rounded-full text-xs font-bold uppercase tracking-widest">{t}</span>
+                     ))}
                   </div>
                 </div>
 
-                <div className="relative hidden lg:block">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent rounded-lg blur-2xl"></div>
-                  <div className="relative bg-card border border-primary/20 rounded-lg p-6">
-                    {(() => {
-                      const quotes = [
-                        'Let’s build your MVP- fast, scalable, and user-first.',
-                        'Ship faster with clean code and predictable delivery.',
-                        'Turn ideas into products that users love and investors back.',
-                        'From prototype to production- I handle the tech so you don’t have to.',
-                        'Reduce time-to-market with battle-tested architecture.',
-                        'Custom solutions that scale with your business goals.',
-                      ];
-
-                      function AutoScrollQuotes() {
-                        const containerRef =
-                          React.useRef<HTMLDivElement | null>(null);
-                        const rafRef = React.useRef<number | null>(null);
-                        const pausedRef = React.useRef(false);
-                        const speed = 0.6; // pixels per frame (tweak as needed)
-
-                        React.useEffect(() => {
-                          const el = containerRef.current;
-                          if (!el) return;
-
-                          // Start RAF loop
-                          function step() {
-                            if (!el || pausedRef.current) {
-                              rafRef.current = requestAnimationFrame(step);
-                              return;
-                            }
-
-                            el.scrollLeft += speed;
-
-                            // When we've scrolled past the first half (the duplicated point), reset
-                            if (el.scrollLeft >= el.scrollWidth / 2) {
-                              el.scrollLeft -= el.scrollWidth / 2;
-                            }
-
-                            rafRef.current = requestAnimationFrame(step);
-                          }
-
-                          rafRef.current = requestAnimationFrame(step);
-                          return () => {
-                            if (rafRef.current)
-                              cancelAnimationFrame(rafRef.current);
-                          };
-                        }, []);
-
-                        return (
-                          <>
-                            <div
-                              ref={containerRef}
-                              className="overflow-x-auto w-full"
-                              onMouseEnter={() => (pausedRef.current = true)}
-                              onMouseLeave={() => (pausedRef.current = false)}
-                              style={{ scrollbarWidth: 'none' as const }}
-                              aria-hidden={false}
-                            >
-                              <div className="inline-flex gap-4 items-center whitespace-nowrap">
-                                {[...quotes, ...quotes].map((q, i) => (
-                                  <div
-                                    key={i}
-                                    className="inline-flex items-center px-4 py-2 bg-primary/8 text-primary rounded-full text-sm font-medium min-w-[180px] max-w-[320px] truncate"
-                                  >
-                                    “{q}”
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          </>
-                        );
-                      }
-
-                      // Render component
-                      return <AutoScrollQuotes />;
-                    })()}
+                <div className="relative">
+                  <div className="absolute inset-0 bg-primary/20 rounded-2xl blur-3xl -rotate-3 scale-95 opacity-50"></div>
+                  <div className="relative bg-card border border-primary/20 rounded-2xl p-8 shadow-inner overflow-hidden">
+                    <div className="space-y-4">
+                       {[
+                         'Analyzing Patient Record...',
+                         'Context Extraction Complete.',
+                         'Risk Assessment: CRITICAL (0.98)',
+                         'Routing to Specialist Hub Alpha.',
+                         'Notifying Medical Staff...',
+                         'Log: Processed in 450ms'
+                       ].map((line, i) => (
+                         <div key={i} className="flex items-center gap-3 font-mono text-sm">
+                            <span className="text-primary font-black opacity-50">{i + 1}</span>
+                            <span className={i === 2 ? "text-accent font-bold" : "text-muted-foreground"}>{line}</span>
+                         </div>
+                       ))}
+                    </div>
+                    <div className="mt-8 h-1 w-full bg-primary/10 rounded-full overflow-hidden">
+                       <div className="h-full bg-primary w-full animate-progress-glow"></div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -283,20 +252,30 @@ export default function Testimonials() {
           </div>
         </section>
 
+        <style>{`
+          @keyframes progress-glow {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+          }
+          .animate-progress-glow {
+            animation: progress-glow 2s linear infinite;
+          }
+        `}</style>
+
         {/* CTA Section */}
-        <section className="py-20 px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6">
-              Ready to Be the Next Success Story?
+        <section className="py-32 px-6 text-center">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-5xl font-black mb-8 tracking-tight">
+              Become Our Next Success Story
             </h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              Let's collaborate and create something amazing together.
+            <p className="text-xl text-muted-foreground mb-12 font-medium">
+              Join the elite group of businesses that have unlocked exponential growth with Radices AI.
             </p>
             <a
               href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground rounded-lg hover:bg-accent transition-colors font-medium text-lg"
+              className="inline-flex items-center justify-center px-10 py-5 bg-primary text-primary-foreground rounded-full hover:scale-105 transition-all duration-300 font-bold text-xl shadow-2xl shadow-primary/20"
             >
-              Start Your Project
+              Get a Free AI Audit
             </a>
           </div>
         </section>

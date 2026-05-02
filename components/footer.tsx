@@ -9,11 +9,15 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <h3 className="text-lg font-bold text-primary mb-4">
-              {'<Muhammad Ali Raza />'}
-            </h3>
+            <Link
+              href="/"
+              className="text-xl font-bold text-primary mb-4 flex items-center gap-1 group w-fit"
+            >
+              <span className="bg-primary text-primary-foreground px-1.5 py-0 rounded-none group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-300 shadow-[0_0_10px_rgba(var(--primary-rgb),0.3)]">R</span>
+              <span className="group-hover:translate-x-0.5 transition-transform duration-300">adices</span>
+            </Link>
             <p className="text-sm text-muted-foreground">
-              Full-stack developer crafting elegant digital solutions.
+              Empowering businesses through Full Stack AI Automation Engineering. We build the future of intelligent workflows.
             </p>
           </div>
 
@@ -42,7 +46,7 @@ export function Footer() {
                   href="/experience"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
-                  Experience
+                  Case Studies
                 </Link>
               </li>
               <li>
@@ -50,7 +54,7 @@ export function Footer() {
                   href="/services"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
-                  Services
+                  Solutions
                 </Link>
               </li>
             </ul>
@@ -86,7 +90,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:arrazarao@gmail.com"
+                  href="mailto:radices.technologies@gmail.com"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   Email
@@ -112,7 +116,7 @@ export function Footer() {
 
         {/* Bottom */}
         <div className="border-t border-border pt-8 flex flex-col md:flex-row items-center justify-between text-sm text-muted-foreground">
-          <p>&copy; {currentYear} Muhammad Ali Raza. All rights reserved.</p>
+          <p>&copy; {currentYear} Radices. All rights reserved.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
             <a href="#" className="hover:text-primary transition-colors">
               Privacy
