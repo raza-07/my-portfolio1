@@ -35,7 +35,7 @@ export function ServicesContent() {
            {services.map((service: any, idx: number) => (
              <div 
                key={idx} 
-               className="group relative p-8 bg-foreground/[0.01] border border-foreground/10 rounded-2xl flex flex-col justify-between transition-all duration-700 hover:bg-foreground/[0.03] hover:border-primary/40 hover:-translate-y-1 overflow-hidden"
+               className="group relative p-6 md:p-8 bg-foreground/[0.01] border border-foreground/10 rounded-2xl flex flex-col justify-between transition-all duration-700 hover:bg-foreground/[0.03] hover:border-primary/40 hover:-translate-y-1 overflow-hidden"
              >
                <div className="relative z-10">
                   <div className="flex items-center justify-between mb-6">

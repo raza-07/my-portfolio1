@@ -61,7 +61,7 @@ export function ContactContent() {
   return (
     <section className="bg-background text-foreground py-32 px-6 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 xl:gap-24">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-24">
           
           {/* Left Column: Contact Info & Socials */}
           <div className="lg:col-span-5 space-y-12">
@@ -72,8 +72,8 @@ export function ContactContent() {
               transition={{ duration: 0.6 }}
               className="space-y-6"
             >
-              <h1 className="text-6xl md:text-7xl font-black tracking-tighter leading-none">
-                LET&apos;S <span className="text-primary">TALK.</span>
+              <h1 className="text-5xl md:text-7xl font-serif tracking-normal leading-none uppercase">
+                LET&apos;S <span className="text-primary font-sans font-bold">TALK.</span>
               </h1>
               <p className="text-xl text-foreground/50 max-w-md font-medium leading-relaxed">
                 Have a high-stakes project? Our AI engineers are ready to deploy. Reach out and let&apos;s build the future.

@@ -103,12 +103,12 @@ export function WorkContent() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="group max-w-6xl w-full bg-foreground/[0.02] border border-foreground/20 rounded-[3rem] p-8 md:p-12 flex flex-col lg:flex-row items-center gap-10 backdrop-blur-sm relative transition-all duration-700 hover:border-primary/30 hover:shadow-[0_0_50px_rgba(var(--primary-rgb),0.05)] hover:scale-[1.01]"
+            className="group max-w-6xl w-full bg-foreground/[0.02] border border-foreground/20 rounded-[3rem] p-8 md:p-12 flex flex-col lg:flex-row items-center gap-8 lg:gap-10 backdrop-blur-sm relative transition-all duration-700 hover:border-primary/30 hover:shadow-[0_0_50px_rgba(var(--primary-rgb),0.05)] hover:scale-[1.01]"
           >
             <div className="absolute top-0 right-0 w-[40%] h-full bg-primary/5 blur-[80px] -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
 
             {/* Strategic Impact Panel (Replaced Image) */}
-            <div className="w-full lg:w-[40%] aspect-[4/5] lg:aspect-square rounded-[3rem] bg-slate-50/50 border border-foreground/10 p-10 flex flex-col justify-between relative overflow-hidden group/panel">
+            <div className="w-full lg:w-[40%] aspect-square md:aspect-[4/5] lg:aspect-square rounded-[3rem] bg-slate-50/50 border border-foreground/10 p-6 md:p-10 flex flex-col justify-between relative overflow-hidden group/panel">
                <div className="absolute inset-0 bg-grid-pattern opacity-5 text-foreground"></div>
                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-3xl -z-10"></div>
                
@@ -164,7 +164,7 @@ export function WorkContent() {
                      ))}
                   </div>
                 </div>
-                <h3 className="text-3xl md:text-5xl font-bold tracking-normal leading-none group-hover:text-primary transition-colors duration-500">{project.title}</h3>
+                <h3 className="text-2xl md:text-5xl font-bold tracking-normal leading-none group-hover:text-primary transition-colors duration-500">{project.title}</h3>
                 <p className="text-[10px] font-bold text-primary uppercase tracking-widest group-hover:scale-105 origin-left transition-transform duration-500">{project.industry}</p>
               </div>
 

@@ -65,9 +65,9 @@ export default function CaseStudy() {
                </div>
 
                {/* Metric Cards */}
-               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 animate-fade-in delay-400">
+               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 animate-fade-in delay-400">
                  {caseStudy.metrics.map((metric, i) => (
-                   <div key={i} className="p-8 bg-foreground/[0.02] border border-foreground/10 rounded-[2rem] group hover:border-primary/40 transition-all duration-500">
+                   <div key={i} className="p-6 md:p-8 bg-foreground/[0.02] border border-foreground/10 rounded-[2rem] group hover:border-primary/40 transition-all duration-500">
                      <div className="flex items-center justify-between mb-4">
                         <span className="text-[10px] font-black uppercase tracking-widest text-primary">{metric.value}</span>
                         <span className={`text-[8px] font-bold px-2 py-0.5 rounded-full ${metric.delta.startsWith('+') ? 'bg-green-500/10 text-green-500' : 'bg-blue-500/10 text-blue-500'}`}>
@@ -87,7 +87,7 @@ export default function CaseStudy() {
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20">
             <div className="space-y-8">
                <span className="px-3 py-1 bg-foreground/5 border border-foreground/10 rounded-full text-[9px] font-bold uppercase tracking-widest text-foreground/30">Business Context</span>
-               <h2 className="text-4xl md:text-6xl font-bold tracking-tight leading-none">{caseStudy.context.title}</h2>
+               <h2 className="text-4xl md:text-6xl font-serif tracking-normal leading-none uppercase">{caseStudy.context.title}</h2>
                <p className="text-xl text-foreground/50 leading-relaxed font-medium">
                  {caseStudy.context.description}
                </p>
@@ -108,7 +108,7 @@ export default function CaseStudy() {
            <div className="max-w-7xl mx-auto space-y-16">
               <div className="space-y-6">
                 <span className="px-3 py-1 bg-foreground/5 border border-foreground/10 rounded-full text-[9px] font-black uppercase tracking-widest text-foreground/30">Problem Analysis</span>
-                <h2 className="text-4xl md:text-6xl font-black tracking-tighter">{caseStudy.problem.title}</h2>
+                <h2 className="text-4xl md:text-6xl font-serif tracking-normal uppercase">{caseStudy.problem.title}</h2>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {caseStudy.problem.cards.map((card, i) => (
@@ -119,7 +119,7 @@ export default function CaseStudy() {
                          {card.severity}
                        </span>
                     </div>
-                    <h3 className="text-xl font-black tracking-tight leading-none">{card.title}</h3>
+                    <h3 className="text-xl font-serif tracking-normal leading-none uppercase">{card.title}</h3>
                     <p className="text-sm text-foreground/30 font-medium leading-relaxed group-hover:text-foreground/50 transition-colors">{card.desc}</p>
                   </div>
                 ))}
@@ -132,8 +132,8 @@ export default function CaseStudy() {
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div className="space-y-10">
                <div className="space-y-6">
-                 <span className="px-3 py-1 bg-foreground/5 border border-foreground/10 rounded-full text-[9px] font-black uppercase tracking-widest text-foreground/30">Solution Architecture</span>
-                 <h2 className="text-4xl md:text-6xl font-black tracking-tighter leading-none">{caseStudy.solution.title}</h2>
+                 <span className="px-3 py-1 bg-foreground/5 border border-foreground/10 rounded-full text-[9px] font-serif tracking-normal uppercase tracking-widest text-foreground/30">Solution Architecture</span>
+                 <h2 className="text-4xl md:text-6xl font-serif tracking-normal leading-none uppercase">{caseStudy.solution.title}</h2>
                  <p className="text-xl text-foreground/40 leading-relaxed font-medium">{caseStudy.solution.description}</p>
                </div>
                <div className="space-y-4">
@@ -144,7 +144,7 @@ export default function CaseStudy() {
                         {i < caseStudy.solution.features.length - 1 && <div className="w-[1px] flex-grow bg-foreground/10 my-2"></div>}
                       </div>
                       <div className="pb-8">
-                        <h4 className="text-lg font-black mb-2 tracking-tight">{feature.title}</h4>
+                        <h4 className="text-lg font-serif mb-2 tracking-normal uppercase">{feature.title}</h4>
                         <p className="text-sm text-foreground/30 leading-relaxed font-medium group-hover:text-foreground/50 transition-colors">{feature.desc}</p>
                       </div>
                    </div>

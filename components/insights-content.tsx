@@ -34,7 +34,7 @@ export function InsightsContent() {
             {testimonials.map((testimonial, idx) => (
               <div
                 key={idx}
-                className="group relative p-10 bg-foreground/[0.02] border border-foreground/10 rounded-3xl hover:bg-foreground/[0.04] hover:border-primary/50 transition-all duration-700 flex flex-col min-h-[480px] overflow-hidden backdrop-blur-sm"
+                className="group relative p-6 md:p-8 bg-foreground/[0.02] border border-foreground/10 rounded-3xl hover:bg-foreground/[0.04] hover:border-primary/50 transition-all duration-700 flex flex-col min-h-[480px] overflow-hidden backdrop-blur-sm"
               >
                 
                 <div className="w-12 h-12 rounded-2xl bg-primary/5 border border-primary/20 flex items-center justify-center mb-8 group-hover:bg-primary/20 transition-all duration-500">
@@ -73,7 +73,7 @@ export function InsightsContent() {
       {/* Stats Section - Now follows Testimonials */}
       <section className="py-20 px-6 bg-foreground/[0.02] border-y border-foreground/5">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             {stats.map((stat, idx) => (
               <div key={idx} className="text-center group">
                 <p className="text-4xl lg:text-5xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform duration-500">
@@ -90,11 +90,11 @@ export function InsightsContent() {
       <section className="py-24 px-6 bg-foreground/[0.02] relative overflow-hidden">
          <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-primary/5 to-transparent -z-10"></div>
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-black mb-16 tracking-tight text-center uppercase text-foreground/50">
+          <h2 className="text-3xl font-serif mb-16 tracking-normal text-center uppercase text-foreground/50">
             Strategic Work Achievement
           </h2>
 
-          <div className="group bg-background border border-foreground/10 rounded-[2.5rem] p-10 lg:p-16 shadow-2xl relative overflow-hidden transition-all duration-700 hover:border-primary/30 hover:shadow-[0_0_50px_rgba(var(--primary-rgb),0.05)] hover:scale-[1.01]">
+          <div className="group bg-background border border-foreground/10 rounded-[2.5rem] p-6 md:p-10 lg:p-16 shadow-2xl relative overflow-hidden transition-all duration-700 hover:border-primary/30 hover:shadow-[0_0_50px_rgba(var(--primary-rgb),0.05)] hover:scale-[1.01]">
              <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 -z-10 blur-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div className="space-y-8">
