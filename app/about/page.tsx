@@ -1,49 +1,45 @@
 'use client';
 
 import React from 'react';
-import { Navigation } from '@/components/navigation';
-import { Footer } from '@/components/footer';
-import { Shield, Target, Globe } from 'lucide-react';
+import { Navigation } from '../../components/navigation';
+import { Footer } from '../../components/footer';
+import { AboutContent } from '@/components/about-content';
+import Link from 'next/link';
 
 export default function About() {
   return (
     <>
       <Navigation />
-      <main className="min-h-screen bg-black text-white selection:bg-primary/30 pt-32">
-        <section className="py-32 px-6">
-          <div className="max-w-5xl mx-auto space-y-12">
-            <p className="text-[11px] font-black uppercase tracking-[0.4em] text-primary">The Agency</p>
-            <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-black tracking-tight leading-[0.95] md:leading-[0.9]">
-              RADICES <br />
-              <span className="text-white/40">ENGINEERING</span>
-            </h1>
-            <p className="text-lg md:text-2xl text-white/60 max-w-3xl leading-relaxed font-medium">
-              We bridge the gap between human intuition and machine precision. Radices engineers the cognitive foundations for the world's most ambitious brands.
-            </p>
-          </div>
-        </section>
+      <main className="min-h-screen bg-black text-white selection:bg-primary/30 overflow-hidden">
+        
+        {/* Ambient Neural Background */}
+        <div className="fixed inset-0 pointer-events-none z-0">
+          <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-primary/10 rounded-full blur-[150px]"></div>
+          <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-600/5 rounded-full blur-[150px]"></div>
+        </div>
 
-        <section className="py-40 px-6 bg-white/[0.02] border-y border-white/5">
-          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-              <div className="relative aspect-[4/3] bg-white/5 border border-white/10 p-2 rounded-none">
-                <img src="/radices_hq.png" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000" alt="Radices HQ" />
-              </div>
-              <div className="space-y-16">
-                 {[
-                   { icon: Target, title: 'Precision Orchestration', desc: 'Every agent we deploy is tuned for maximum accuracy and zero-latency performance.' },
-                   { icon: Shield, title: 'Hardened Architecture', desc: 'Enterprise-grade security is baked into the neural foundation, not added as an afterthought.' },
-                   { icon: Globe, title: 'Global Intelligence', desc: 'Operating at the intersection of international markets and local technical nuance.' }
-                 ].map((item, idx) => (
-                   <div key={idx} className="flex gap-8 group">
-                      <item.icon className="w-8 h-8 text-primary flex-shrink-0" />
-                      <div>
-                         <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
-                         <p className="text-white/50 text-lg leading-relaxed">{item.desc}</p>
-                      </div>
-                   </div>
-                 ))}
-              </div>
+        {/* Full About Content Component */}
+        <AboutContent />
+
+        {/* Final CTA */}
+        <section className="py-40 px-6 relative z-10 text-center">
+          <div className="max-w-4xl mx-auto space-y-12">
+            <div className="flex justify-center mb-8">
+               <div className="w-24 h-24 p-4 bg-white/[0.02] border border-white/10 rounded-3xl">
+                  <img src="/logo.svg" alt="Radices Roots" className="w-full h-full object-contain opacity-50" />
+               </div>
+            </div>
+            <h2 className="text-5xl md:text-8xl font-black tracking-tighter leading-none">
+              READY TO <br /> <span className="text-primary">TRANSFORM?</span>
+            </h2>
+            <p className="text-xl text-white/30 font-medium">Let's build the digital roots of your next 10x success story.</p>
+            <div className="pt-8">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center px-16 py-6 bg-white text-black font-black uppercase tracking-[0.3em] text-xs rounded-full hover:bg-primary hover:text-white transition-all duration-500 shadow-2xl"
+              >
+                Book a Strategy Call
+              </Link>
             </div>
           </div>
         </section>
