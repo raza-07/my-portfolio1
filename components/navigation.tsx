@@ -85,7 +85,7 @@ export function Navigation() {
     <>
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled || isOpen ? 'bg-black/90 backdrop-blur-xl border-b border-white/10 py-4' : 'bg-transparent py-8'
+          scrolled || isOpen ? 'bg-background/90 backdrop-blur-xl border-b border-foreground/10 py-4' : 'bg-transparent py-8'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -101,7 +101,7 @@ export function Navigation() {
             className="flex items-center gap-4 group relative z-50"
           >
             <img src="/logo.svg" alt="Radices Logo" className="w-14 h-14 object-contain group-hover:scale-110 transition-transform duration-500" />
-            <span className="font-black text-2xl tracking-[0.3em] text-white uppercase group-hover:text-primary transition-colors">Radices</span>
+            <span className="font-bold text-2xl tracking-[0.3em] text-foreground uppercase group-hover:text-primary transition-colors">Radices</span>
           </Link>
 
           {/* Desktop Navigation Links */}
@@ -113,7 +113,7 @@ export function Navigation() {
                 onClick={(e) => handleLinkClick(e, link.id)}
                 className={cn(
                   'text-[11px] font-bold uppercase tracking-[0.2em] transition-colors relative group',
-                  isActive(link) ? 'text-primary' : 'text-white/50 hover:text-white'
+                  isActive(link) ? 'text-primary' : 'text-foreground/50 hover:text-foreground'
                 )}
               >
                 {link.label}
@@ -129,18 +129,18 @@ export function Navigation() {
               className={cn(
                 "flex items-center gap-3 px-6 py-2.5 rounded-full border transition-all duration-500",
                 activeSection === 'contact' || pathname === '/contact' 
-                  ? 'bg-blue-500 border-blue-500 text-black shadow-[0_0_20px_rgba(59,130,246,0.3)]' 
-                  : 'bg-blue-500/10 border-blue-500/20 text-blue-500 hover:bg-blue-500/20'
+                  ? 'bg-primary border-primary text-primary-foreground shadow-[0_0_20px_rgba(59,130,246,0.3)]' 
+                  : 'bg-primary/10 border-primary/20 text-primary hover:bg-primary/20'
               )}
             >
               <span className="relative flex h-2 w-2">
                 <span className={cn(
                   "animate-ping absolute inline-flex h-full w-full rounded-full opacity-75",
-                  activeSection === 'contact' ? 'bg-black' : 'bg-blue-500'
+                  activeSection === 'contact' ? 'bg-primary-foreground' : 'bg-primary'
                 )}></span>
                 <span className={cn(
                   "relative inline-flex h-2 w-2 rounded-full",
-                  activeSection === 'contact' ? 'bg-black' : 'bg-blue-500'
+                  activeSection === 'contact' ? 'bg-primary-foreground' : 'bg-primary'
                 )}></span>
               </span>
               <span className="text-[11px] font-bold uppercase tracking-[0.2em]">Active Now</span>
@@ -150,7 +150,7 @@ export function Navigation() {
           {/* Mobile Menu Button */}
           <button 
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden relative z-50 text-white p-2 hover:text-primary transition-colors"
+            className="md:hidden relative z-50 text-foreground p-2 hover:text-primary transition-colors"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -159,16 +159,16 @@ export function Navigation() {
 
       {/* Floating Section Label (On Page) */}
       <div className="fixed left-8 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col items-center gap-6 pointer-events-none">
-        <div className="h-20 w-[1px] bg-white/20"></div>
-        <span className="text-[10px] font-black uppercase tracking-[0.8em] text-white/40 rotate-180 [writing-mode:vertical-lr] transition-all duration-700 whitespace-nowrap">
+        <div className="h-20 w-[1px] bg-foreground/20"></div>
+        <span className="text-[10px] font-black uppercase tracking-[0.8em] text-foreground/40 rotate-180 [writing-mode:vertical-lr] transition-all duration-700 whitespace-nowrap">
           {sectionHeadings[activeSection] || 'RADICES INTELLIGENCE'}
         </span>
-        <div className="h-20 w-[1px] bg-white/20"></div>
+        <div className="h-20 w-[1px] bg-foreground/20"></div>
       </div>
 
       {/* Mobile Navigation Overlay */}
       <div className={cn(
-        "fixed inset-0 z-40 bg-black transition-all duration-500 ease-in-out md:hidden",
+        "fixed inset-0 z-40 bg-background/95 backdrop-blur-3xl transition-all duration-500 ease-in-out md:hidden",
         isOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
       )}>
         <div className="flex flex-col items-center justify-center h-full space-y-12 px-6">
@@ -178,8 +178,8 @@ export function Navigation() {
               href={link.href}
               onClick={(e) => handleLinkClick(e, link.id)}
               className={cn(
-                "text-4xl font-black uppercase tracking-[0.1em] transition-all duration-300",
-                isActive(link) ? "text-primary translate-x-2" : "text-white/40 hover:text-white"
+                "text-4xl font-bold uppercase tracking-[0.1em] transition-all duration-300",
+                isActive(link) ? "text-primary translate-x-2" : "text-foreground/40 hover:text-foreground"
               )}
               style={{ transitionDelay: `${i * 50}ms` }}
             >
@@ -192,21 +192,21 @@ export function Navigation() {
             className={cn(
               "flex items-center gap-4 px-10 py-5 rounded-full border transition-all duration-500",
               activeSection === 'contact' 
-                ? 'bg-blue-500 border-blue-500 text-black shadow-[0_0_20px_rgba(59,130,246,0.3)]' 
-                : 'bg-blue-500/10 border-blue-500/20 text-blue-500'
+              ? 'bg-primary border-primary text-primary-foreground shadow-[0_0_20px_rgba(59,130,246,0.3)]' 
+              : 'bg-primary/10 border-primary/20 text-primary'
             )}
           >
             <span className="relative flex h-3 w-3">
               <span className={cn(
                 "animate-ping absolute inline-flex h-full w-full rounded-full opacity-75",
-                activeSection === 'contact' ? 'bg-black' : 'bg-blue-500'
+                activeSection === 'contact' ? 'bg-primary-foreground' : 'bg-primary'
               )}></span>
               <span className={cn(
                 "relative inline-flex h-3 w-3 rounded-full",
-                activeSection === 'contact' ? 'bg-black' : 'bg-blue-500'
+                activeSection === 'contact' ? 'bg-primary-foreground' : 'bg-primary'
               )}></span>
             </span>
-            <span className="text-xl font-black uppercase tracking-[0.2em]">Active Now</span>
+            <span className="text-xl font-bold uppercase tracking-[0.2em]">Active Now</span>
           </Link>
         </div>
       </div>

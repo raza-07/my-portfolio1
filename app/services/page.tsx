@@ -3,6 +3,7 @@
 import React, { useRef } from 'react';
 import { Navigation } from '@/components/navigation';
 import { Footer } from '@/components/footer';
+import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import { ServicesContent } from '@/components/services-content';
 
@@ -16,12 +17,12 @@ export default function Services() {
   return (
     <>
       <Navigation />
-      <main className="min-h-screen bg-black text-white pt-20 selection:bg-primary/30">
+      <main className="min-h-screen bg-background text-foreground pt-20 selection:bg-primary/30">
         
         {/* Modern Ambient Glow */}
         <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-0">
           <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/10 rounded-full blur-[120px]"></div>
-          <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-600/5 rounded-full blur-[120px]"></div>
+          <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-[120px]"></div>
         </div>
 
         {/* Services Hero */}
@@ -37,10 +38,10 @@ export default function Services() {
               
               <h1 className="text-6xl md:text-8xl lg:text-[11rem] font-black tracking-tighter leading-[0.8] animate-reveal">
                 NEURAL <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/10">ARCHITECTURES</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-foreground via-foreground to-foreground/40">ARCHITECTURES</span>
               </h1>
               
-              <p className="text-2xl md:text-5xl font-light italic tracking-tighter text-white/20 animate-fade-in delay-200 ml-1 md:ml-2">
+              <p className="text-2xl md:text-5xl font-light italic tracking-tighter text-foreground/20 animate-fade-in delay-200 ml-1 md:ml-2">
                 engineered for infinite competitive advantage.
               </p>
             </div>
@@ -52,11 +53,11 @@ export default function Services() {
           >
             <div className="relative flex items-center justify-center">
               <div className="absolute inset-0 w-12 h-12 bg-primary/20 rounded-full blur-xl group-hover:scale-150 transition-transform duration-1000"></div>
-              <div className="relative w-12 h-12 border border-white/10 rounded-full flex items-center justify-center bg-black/50 backdrop-blur-md group-hover:border-primary/50 transition-colors">
+              <div className="relative w-12 h-12 border border-foreground/10 rounded-full flex items-center justify-center bg-background/50 backdrop-blur-md group-hover:border-primary/50 transition-colors">
                 <ChevronRight className="w-5 h-5 text-primary rotate-90 animate-[bounce_2s_infinite]" />
               </div>
             </div>
-            <span className="text-[9px] font-black uppercase tracking-[0.4em] text-white/20 group-hover:text-primary transition-colors">Explore Architectures</span>
+            <span className="text-[9px] font-black uppercase tracking-[0.4em] text-foreground/20 group-hover:text-primary transition-colors">Explore Architectures</span>
           </div>
         </section>
 
@@ -72,16 +73,16 @@ export default function Services() {
             <h2 className="text-5xl md:text-7xl font-black tracking-tighter leading-none">
               READY TO <span className="text-primary text-glow">DEPLOY?</span>
             </h2>
-            <p className="text-xl text-white/40 max-w-2xl mx-auto font-medium">
+            <p className="text-xl text-foreground/40 max-w-2xl mx-auto font-medium">
               Join the elite teams scaling their technical advantage through neural automation. Your transformation begins with a single audit.
             </p>
             <div className="pt-6">
-              <a
+              <Link
                 href="/contact"
-                className="px-12 py-6 bg-white text-black font-black uppercase tracking-[0.3em] text-xs rounded-full hover:bg-primary hover:text-white transition-all duration-500 shadow-[0_20px_60px_rgba(255,255,255,0.1)] hover:shadow-primary/30"
+                className="inline-flex items-center justify-center px-12 py-6 bg-primary text-primary-foreground font-black uppercase tracking-[0.3em] text-xs rounded-full hover:bg-primary/80 transition-all duration-500 shadow-2xl"
               >
                 Initiate Project Audit
-              </a>
+              </Link>
             </div>
           </div>
         </section>

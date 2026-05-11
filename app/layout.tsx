@@ -1,12 +1,12 @@
-import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google"
+import { DM_Sans, Space_Mono, DM_Serif_Display } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { CustomCursor } from "@/components/custom-cursor"
 import type { Metadata } from "next"
 import "./globals.css"
 
-const _geist = Geist({ subsets: ["latin"], variable: "--font-geist" })
-const _geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono" })
-const _serif = Instrument_Serif({ weight: "400", subsets: ["latin"], variable: "--font-serif" })
+const _dmSans = DM_Sans({ subsets: ["latin"], variable: "--font-sans" })
+const _spaceMono = Space_Mono({ weight: "400", subsets: ["latin"], variable: "--font-mono" })
+const _dmSerif = DM_Serif_Display({ weight: "400", subsets: ["latin"], variable: "--font-serif" })
 
 export const metadata: Metadata = {
   title: "Radices | Systemic AI Intelligence",
@@ -24,8 +24,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`dark ${_geist.variable} ${_geistMono.variable}`}>
-      <body className={`font-sans antialiased bg-black text-white relative overflow-x-hidden`}>
+    <html lang="en" className={`${_dmSans.variable} ${_spaceMono.variable} ${_dmSerif.variable}`}>
+      <body className={`font-sans antialiased bg-background text-foreground relative overflow-x-hidden`}>
         <CustomCursor />
         {children}
         <Analytics />

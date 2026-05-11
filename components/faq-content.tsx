@@ -30,11 +30,11 @@ export function FAQContent() {
     <div className="py-12 relative overflow-hidden">
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="text-center mb-20 space-y-4">
-          <div className="inline-flex items-center gap-3 px-4 py-2 bg-white/5 border border-white/10 rounded-full">
+          <div className="inline-flex items-center gap-3 px-4 py-2 bg-foreground/5 border border-foreground/10 rounded-full">
             <HelpCircle className="w-4 h-4 text-primary" />
-            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/50">Common Inquiries</span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-foreground/50">Common Inquiries</span>
           </div>
-          <h2 className="text-5xl md:text-6xl font-black tracking-tighter">QUESTIONS.</h2>
+          <h2 className="text-5xl md:text-6xl font-serif tracking-normal uppercase">QUESTIONS.</h2>
         </div>
 
         <div className="space-y-4">
@@ -43,19 +43,19 @@ export function FAQContent() {
               key={i}
               className={`border rounded-[2rem] overflow-hidden transition-all duration-500 ${
                 openIndex === i 
-                  ? 'bg-white/[0.05] border-primary/30' 
-                  : 'bg-white/[0.02] border-white/10 hover:border-white/20'
+                  ? 'bg-foreground/[0.05] border-primary/30' 
+                  : 'bg-foreground/[0.02] border-foreground/10 hover:border-foreground/20'
               }`}
             >
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="w-full flex items-center justify-between p-8 text-left focus:outline-none group"
               >
-                <span className={`text-xl font-bold tracking-tight transition-colors ${openIndex === i ? 'text-white' : 'text-white/80 group-hover:text-white'}`}>
+                <span className={`text-xl font-bold tracking-tight transition-colors ${openIndex === i ? 'text-foreground' : 'text-foreground/80 group-hover:text-foreground'}`}>
                   {faq.question}
                 </span>
-                <div className={`w-10 h-10 rounded-full border border-white/10 flex items-center justify-center transition-all duration-500 ${openIndex === i ? 'bg-primary border-primary rotate-180' : 'group-hover:border-primary/50'}`}>
-                  {openIndex === i ? <Minus className="w-5 h-5 text-black" /> : <Plus className="w-5 h-5 text-white/40 group-hover:text-primary" />}
+                <div className={`w-10 h-10 rounded-full border border-foreground/10 flex items-center justify-center transition-all duration-500 ${openIndex === i ? 'bg-primary border-primary rotate-180' : 'group-hover:border-primary/50'}`}>
+                  {openIndex === i ? <Minus className="w-5 h-5 text-primary-foreground" /> : <Plus className="w-5 h-5 text-foreground/40 group-hover:text-primary" />}
                 </div>
               </button>
               <AnimatePresence>
@@ -66,7 +66,7 @@ export function FAQContent() {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.4, ease: "easeInOut" }}
                   >
-                    <div className="px-8 pb-8 text-lg text-white/60 font-medium leading-relaxed max-w-3xl">
+                    <div className="px-8 pb-8 text-lg text-foreground/60 font-medium leading-relaxed max-w-3xl">
                       {faq.answer}
                     </div>
                   </motion.div>

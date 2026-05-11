@@ -4,46 +4,46 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: 0 0% 0%;
-  --foreground: 0 0% 100%;
-  --card: 0 0% 3%;
-  --card-foreground: 0 0% 100%;
-  --popover: 0 0% 3%;
-  --popover-foreground: 0 0% 100%;
-  --primary: 217 91% 60%;
+  --background: hsl(0 0% 98%);
+  --foreground: hsl(0 0% 0%);
+  --card: hsl(0 0% 100%);
+  --card-foreground: hsl(0 0% 0%);
+  --popover: hsl(0 0% 100%);
+  --popover-foreground: hsl(0 0% 0%);
+  --primary: hsl(217 91% 60%);
   --primary-rgb: 59, 130, 246;
-  --primary-foreground: 0 0% 100%;
-  --secondary: 0 0% 10%;
-  --secondary-foreground: 0 0% 100%;
-  --muted: 0 0% 15%;
-  --muted-foreground: 0 0% 60%;
-  --accent: 217 91% 60%;
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: hsl(0 0% 95%);
+  --secondary-foreground: hsl(0 0% 0%);
+  --muted: hsl(0 0% 90%);
+  --muted-foreground: hsl(0 0% 40%);
+  --accent: hsl(217 91% 60%);
   --accent-rgb: 59, 130, 246;
-  --accent-foreground: 0 0% 100%;
-  --destructive: 0 84% 60%;
-  --destructive-foreground: 0 0% 100%;
-  --border: 0 0% 12%;
-  --input: 0 0% 12%;
-  --ring: 217 91% 60%;
+  --accent-foreground: hsl(0 0% 100%);
+  --destructive: hsl(0 84% 60%);
+  --destructive-foreground: hsl(0 0% 100%);
+  --border: hsl(0 0% 90%);
+  --input: hsl(0 0% 90%);
+  --ring: hsl(217 91% 60%);
   --radius: 0rem;
 }
 
 .dark {
-  --background: 0 0% 0%;
-  --foreground: 0 0% 100%;
-  --card: 0 0% 3%;
-  --card-foreground: 0 0% 100%;
-  --primary: 217 91% 60%;
+  --background: hsl(0 0% 0%);
+  --foreground: hsl(0 0% 100%);
+  --card: hsl(0 0% 3%);
+  --card-foreground: hsl(0 0% 100%);
+  --primary: hsl(217 91% 60%);
   --primary-rgb: 59, 130, 246;
-  --primary-foreground: 0 0% 100%;
-  --accent: 217 91% 60%;
+  --primary-foreground: hsl(0 0% 100%);
+  --accent: hsl(217 91% 60%);
   --accent-rgb: 59, 130, 246;
-  --accent-foreground: 0 0% 100%;
-  --border: 0 0% 12%;
+  --accent-foreground: hsl(0 0% 100%);
+  --border: hsl(0 0% 12%);
 }
 
 @theme inline {
-  --font-sans: var(--font-geist);
+  --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
   --font-serif: var(--font-serif);
   --color-background: var(--background);
@@ -188,6 +188,24 @@
 .glow-on-hover:hover {
   box-shadow: 0 0 20px rgba(var(--primary-rgb), 0.2);
   border-color: var(--primary);
+}
+
+/* Typography & Heading Styles */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-serif tracking-tight leading-none;
+}
+
+.font-mono {
+  @apply tracking-widest uppercase;
+}
+
+.bg-grid-pattern {
+  background-image: radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.text-glow {
+  text-shadow: 0 0 20px rgba(var(--primary-rgb), 0.4);
 }
 
 @keyframes ticker {

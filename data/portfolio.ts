@@ -10,6 +10,8 @@ export const projects = [
     category: 'SaaS Analytics',
     image: '/images/work/oscar-ai.png',
     featured: true,
+    uptime: '99.9%',
+    latency: '0.4ms',
     caseStudy: {
       heroTitle: 'Scraping Instability was Corrupting Production Data',
       heroSubtitle: 'Stabilizing an autonomous data extraction engine to provide reliable, normalized insights for SaaS analytics at scale.',
@@ -68,6 +70,8 @@ export const projects = [
     category: 'Full-Stack AI',
     image: '/images/work/searchatlas.png',
     featured: true,
+    uptime: '99.9%',
+    latency: '120ms',
     caseStudy: {
       heroTitle: 'Fragmented SEO Tools were Throttling Agency Growth',
       heroSubtitle: 'Consolidating keyword research, content generation, and technical audits into a single, high-performance AI ecosystem.',
@@ -126,6 +130,8 @@ export const projects = [
     category: 'Staffing SaaS',
     image: '/images/work/enginehire.png',
     featured: true,
+    uptime: '99.95%',
+    latency: '0.8s',
     caseStudy: {
       heroTitle: 'Recurring Bugs were Eroding Staffing Platform Trust',
       heroSubtitle: 'Stabilizing a production-heavy recruitment ecosystem through rigorous feature optimization and systemic bug resolution.',
@@ -184,6 +190,8 @@ export const projects = [
     category: 'Productivity AI',
     image: '/images/work/flowbud.png',
     featured: true,
+    uptime: '99.99%',
+    latency: '< 10ms',
     caseStudy: {
       heroTitle: 'Human Attention was the Missing Metric',
       heroSubtitle: 'Engineering a real-time behavioral monitoring extension to eliminate digital friction and optimize deep-work cycles.',
@@ -241,6 +249,8 @@ export const projects = [
     link: 'https://mentalhealth01.vercel.app/',
     category: 'Digital Presence',
     featured: true,
+    uptime: '100%',
+    latency: '0.8s',
     caseStudy: {
       heroTitle: 'Digital Invisibility was Limiting Patient Care',
       heroSubtitle: 'Architecting a high-conversion digital sanctuary for psychology services to bridge the gap between clinical excellence and online discovery.',
@@ -298,6 +308,8 @@ export const projects = [
     link: '#',
     category: 'Real-Time Systems',
     featured: true,
+    uptime: '99.95%',
+    latency: '< 50ms',
     caseStudy: {
       heroTitle: 'Messaging Latency was Fragmenting Global Teams',
       heroSubtitle: 'Engineering a Dockerized real-time ecosystem to eliminate communication lag and synchronize enterprise collaboration.',
@@ -355,6 +367,8 @@ export const projects = [
     link: '#',
     category: 'Management SaaS',
     featured: true,
+    uptime: '99.9%',
+    latency: '0.5s',
     caseStudy: {
       heroTitle: 'Inventory Chaos was Stalling E-Commerce Operations',
       heroSubtitle: 'Architecting a unified management engine with Django REST and PostgreSQL to streamline high-volume commerce operations.',
@@ -412,6 +426,8 @@ export const projects = [
     link: '#',
     category: 'Digital Agency',
     featured: true,
+    uptime: '100%',
+    latency: '0.6s',
     caseStudy: {
       heroTitle: 'Creative Vision Lacked a Technical Launchpad',
       heroSubtitle: 'Engineering a high-conversion agency hub to showcase systemic excellence and capture high-stakes enterprise leads.',
@@ -469,6 +485,8 @@ export const projects = [
     link: '#',
     category: 'Identity & Security',
     featured: true,
+    uptime: '99.99%',
+    latency: '< 200ms',
     caseStudy: {
       heroTitle: 'Identity Security was an Operational Bottleneck',
       heroSubtitle: 'Engineering a custom, high-control authentication ecosystem with AWS and Terraform for enterprise-grade security.',
@@ -526,6 +544,8 @@ export const projects = [
     link: 'https://consultvop.com/',
     category: 'Medical SaaS',
     featured: true,
+    uptime: '100%',
+    latency: '0.2s',
     caseStudy: {
       heroTitle: 'Data Isolation Failure was a Medical Risk',
       heroSubtitle: 'Real-time enterprise system to manage complex oncology records and treatment protocols with strict data isolation.',
@@ -583,6 +603,8 @@ export const projects = [
     link: 'https://vision-staging.terstal.nl',
     category: 'Retail AI',
     featured: true,
+    uptime: '100%',
+    latency: 'XML Sync',
     caseStudy: {
       heroTitle: 'Inventory Invisibility was Stalling Fashion Logistics',
       heroSubtitle: 'Synchronizing 200+ physical stores with digital channels using AI vision to automate product data enrichment at scale.',
@@ -640,6 +662,8 @@ export const projects = [
     link: 'https://www.bionicwp.com/',
     category: 'Cloud Infrastructure',
     featured: true,
+    uptime: '99.9%',
+    latency: '90+ Speed',
     caseStudy: {
       heroTitle: 'Site Management Bloat was Killing Agency Margins',
       heroSubtitle: 'Architecting a hands-off, high-performance hosting ecosystem to manage thousands of enterprise sites with zero operational friction.',
