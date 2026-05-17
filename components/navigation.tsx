@@ -126,24 +126,13 @@ export function Navigation() {
             <Link 
               href="/contact"
               onClick={(e) => handleLinkClick(e, 'contact')}
-              className={cn(
-                "flex items-center gap-3 px-6 py-2.5 rounded-full border transition-all duration-500",
-                activeSection === 'contact' || pathname === '/contact' 
-                  ? 'bg-primary border-primary text-primary-foreground shadow-[0_0_20px_rgba(59,130,246,0.3)]' 
-                  : 'bg-primary/10 border-primary/20 text-primary hover:bg-primary/20'
-              )}
+              className="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-primary text-primary-foreground font-bold rounded-xl hover:bg-primary/90 transition-all hover:shadow-[0_0_30px_rgba(59,130,246,0.3)] hover:scale-105 active:scale-95 group"
             >
               <span className="relative flex h-2 w-2">
-                <span className={cn(
-                  "animate-ping absolute inline-flex h-full w-full rounded-full opacity-75",
-                  activeSection === 'contact' ? 'bg-primary-foreground' : 'bg-primary'
-                )}></span>
-                <span className={cn(
-                  "relative inline-flex h-2 w-2 rounded-full",
-                  activeSection === 'contact' ? 'bg-primary-foreground' : 'bg-primary'
-                )}></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-foreground opacity-75"></span>
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-primary-foreground"></span>
               </span>
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em]">Active Now</span>
+              <span className="text-sm font-bold">Active Now</span>
             </Link>
           </div>
 
@@ -156,15 +145,6 @@ export function Navigation() {
           </button>
         </div>
       </nav>
-
-      {/* Floating Section Label (On Page) */}
-      <div className="fixed left-8 top-1/2 -translate-y-1/2 z-40 hidden xl:flex flex-col items-center gap-6 pointer-events-none">
-        <div className="h-20 w-[1px] bg-foreground/20"></div>
-        <span className="text-[10px] font-black uppercase tracking-[0.8em] text-foreground/40 rotate-180 [writing-mode:vertical-lr] transition-all duration-700 whitespace-nowrap">
-          {sectionHeadings[activeSection] || 'RADICES INTELLIGENCE'}
-        </span>
-        <div className="h-20 w-[1px] bg-foreground/20"></div>
-      </div>
 
       {/* Mobile Navigation Overlay */}
       <div className={cn(
@@ -189,24 +169,13 @@ export function Navigation() {
           <Link 
             href="/contact"
             onClick={(e) => handleLinkClick(e, 'contact')}
-            className={cn(
-              "flex items-center gap-4 px-10 py-5 rounded-full border transition-all duration-500",
-              activeSection === 'contact' 
-              ? 'bg-primary border-primary text-primary-foreground shadow-[0_0_20px_rgba(59,130,246,0.3)]' 
-              : 'bg-primary/10 border-primary/20 text-primary'
-            )}
+            className="inline-flex items-center justify-center gap-3 px-10 py-5 bg-primary text-primary-foreground font-bold rounded-xl hover:bg-primary/90 transition-all hover:shadow-[0_0_30px_rgba(59,130,246,0.3)] hover:scale-105 active:scale-95 group w-full max-w-xs"
           >
             <span className="relative flex h-3 w-3">
-              <span className={cn(
-                "animate-ping absolute inline-flex h-full w-full rounded-full opacity-75",
-                activeSection === 'contact' ? 'bg-primary-foreground' : 'bg-primary'
-              )}></span>
-              <span className={cn(
-                "relative inline-flex h-3 w-3 rounded-full",
-                activeSection === 'contact' ? 'bg-primary-foreground' : 'bg-primary'
-              )}></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-foreground opacity-75"></span>
+              <span className="relative inline-flex h-3 w-3 rounded-full bg-primary-foreground"></span>
             </span>
-            <span className="text-xl font-bold uppercase tracking-[0.2em]">Active Now</span>
+            <span className="text-xl font-bold">Active Now</span>
           </Link>
         </div>
       </div>

@@ -24,8 +24,9 @@ export default function Contact() {
         <div className="max-w-7xl mx-auto">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 px-6"
           >
             <div className="space-y-4 p-8 rounded-[2rem] bg-foreground/[0.02] border border-foreground/5 backdrop-blur-sm">

@@ -61,29 +61,39 @@ export const CustomCursor = () => {
     <>
       {/* Main Dot */}
       <motion.div
-        className="fixed top-0 left-0 w-1 h-1 bg-white rounded-full pointer-events-none z-[9999]"
+        className="fixed top-0 left-0 w-1.5 h-1.5 bg-black rounded-full pointer-events-none z-[9999]"
         style={{
           x: cursorX,
           y: cursorY,
           translateX: '-50%',
           translateY: '-50%',
         }}
+        animate={{
+          scale: isHovering ? 0.75 : 1,
+          backgroundColor: isHovering ? '#3b82f6' : '#000000',
+        }}
+        transition={{ duration: 0.2 }}
       />
 
       {/* Trailing Stretchy Circle */}
       <motion.div
-        className="fixed top-0 left-0 rounded-full border border-primary/40 pointer-events-none z-[9998] flex items-center justify-center"
+        className="fixed top-0 left-0 rounded-full border-2 border-primary pointer-events-none z-[9998] flex items-center justify-center"
         style={{
           x: trailX,
           y: trailY,
           translateX: '-50%',
           translateY: '-50%',
-          width: 20,
-          height: 20,
+          width: 22,
+          height: 22,
           scaleX: stretch,
           rotate: angle,
-          backgroundColor: isHovering ? 'rgba(0, 112, 243, 0.1)' : 'transparent',
+          backgroundColor: isHovering ? 'rgba(59, 130, 246, 0.12)' : 'transparent',
         }}
+        animate={{
+          scale: isHovering ? 1.4 : 1,
+          borderColor: isHovering ? '#2563eb' : '#3b82f6',
+        }}
+        transition={{ duration: 0.2 }}
       />
       
       {/* Ambient Cursor Glow (Site-wide) */}

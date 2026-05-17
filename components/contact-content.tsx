@@ -59,7 +59,7 @@ export function ContactContent() {
   ];
 
   return (
-    <section className="bg-background text-foreground py-32 px-6 relative overflow-hidden">
+    <section className="bg-background text-foreground py-32 px-6 relative overflow-hidden border-t border-foreground/5">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-24">
           
@@ -122,23 +122,7 @@ export function ContactContent() {
                   ))}
                 </div>
 
-                <div className="pt-4">
-                  <p className="text-[10px] font-black uppercase tracking-[0.3em] text-foreground/30 mb-6">Connect Socially</p>
-                  <div className="flex flex-wrap gap-4">
-                    {socialLinks.map((social, i) => (
-                      <a 
-                        key={i}
-                        href={social.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-14 h-14 rounded-2xl bg-foreground/5 border border-foreground/10 flex items-center justify-center group hover:border-primary/50 hover:bg-primary/10 transition-all duration-300"
-                        title={social.label}
-                      >
-                        <social.icon className="w-6 h-6 text-foreground/50 group-hover:text-primary group-hover:scale-110 transition-all" />
-                      </a>
-                    ))}
-                  </div>
-                </div>
+
               </div>
             </motion.div>
           </div>
@@ -150,12 +134,12 @@ export function ContactContent() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="relative bg-slate-50/50 border border-foreground/10 rounded-[2.5rem] p-6 md:p-10 backdrop-blur-xl shadow-xl overflow-hidden group"
+              className="relative bg-slate-50/50 border border-foreground/10 rounded-3xl p-6 md:p-8 backdrop-blur-xl shadow-xl overflow-hidden group"
             >
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
               
-              <form onSubmit={handleSubmit} className="space-y-10">
-                <div className="space-y-8">
+              <form onSubmit={handleSubmit} className="space-y-8">
+                <div className="space-y-5">
                   <div className="space-y-2">
                     <label className="text-[10px] font-black uppercase tracking-[0.2em] text-foreground/30 ml-4">Identity</label>
                     <input 
@@ -165,7 +149,7 @@ export function ContactContent() {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="Full Name"
-                      className="w-full bg-background border border-foreground/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all font-medium placeholder:text-foreground/20"
+                      className="w-full bg-background border border-foreground/10 rounded-xl px-5 py-3 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all font-medium placeholder:text-foreground/20 text-sm"
                     />
                   </div>
 
@@ -178,7 +162,7 @@ export function ContactContent() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="Work Email"
-                      className="w-full bg-background border border-foreground/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all font-medium placeholder:text-foreground/20 text-foreground"
+                      className="w-full bg-background border border-foreground/10 rounded-xl px-5 py-3 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all font-medium placeholder:text-foreground/20 text-foreground text-sm"
                     />
                   </div>
 
@@ -190,7 +174,7 @@ export function ContactContent() {
                         name="service"
                         value={formData.service}
                         onChange={(e: any) => handleChange(e)}
-                        className="w-full bg-background border border-foreground/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all font-medium text-foreground/40 appearance-none cursor-pointer"
+                        className="w-full bg-background border border-foreground/10 rounded-xl px-5 py-3 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all font-medium text-foreground/40 appearance-none cursor-pointer text-sm"
                       >
                         <option value="" className="bg-background text-foreground/40">Select Strategic Pillar</option>
                         <option value="AI Automation" className="bg-background text-foreground">AI Automation & Agents</option>
@@ -211,9 +195,9 @@ export function ContactContent() {
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
-                      rows={5}
+                      rows={4}
                       placeholder="Describe your current technical bottleneck..."
-                      className="w-full bg-background border border-foreground/10 rounded-3xl px-6 py-4 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all font-medium resize-none placeholder:text-foreground/20"
+                      className="w-full bg-background border border-foreground/10 rounded-xl px-5 py-3 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all font-medium resize-none placeholder:text-foreground/20 text-sm"
                     />
                   </div>
 
@@ -227,11 +211,11 @@ export function ContactContent() {
                           value={userCode}
                           onChange={(e) => setUserCode(e.target.value)}
                           placeholder="Enter key"
-                          className="w-full bg-background border border-foreground/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all font-medium placeholder:text-foreground/20"
+                          className="w-full bg-background border border-foreground/10 rounded-xl px-5 py-3 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-all font-medium placeholder:text-foreground/20 text-sm"
                         />
                       </div>
-                      <div className="w-28 bg-primary/5 border border-primary/20 rounded-2xl flex items-center justify-center">
-                        <span className="text-xl font-black tracking-[0.2em] text-primary font-mono">{securityCode}</span>
+                      <div className="w-24 bg-primary/5 border border-primary/20 rounded-xl flex items-center justify-center">
+                        <span className="text-lg font-black tracking-[0.2em] text-primary font-mono">{securityCode}</span>
                       </div>
                     </div>
                   </div>
@@ -240,11 +224,11 @@ export function ContactContent() {
                 <div className="pt-2">
                   <button 
                     type="submit"
-                    className="w-full group relative bg-primary text-primary-foreground font-black uppercase tracking-[0.2em] py-5 rounded-2xl hover:bg-primary/90 transition-all duration-500 overflow-hidden shadow-lg hover:shadow-primary/20"
+                    className="w-full inline-flex items-center justify-center gap-2 px-10 py-5 bg-primary text-primary-foreground font-bold rounded-xl hover:bg-primary/90 transition-all hover:shadow-[0_0_30px_rgba(59,130,246,0.3)] hover:scale-105 active:scale-95 group"
                   >
-                    <span className="relative z-10 flex items-center justify-center gap-4">
-                      {submitted ? 'Inquiry Deployed' : 'Initiate Neural Audit'}
-                      {!submitted && <Send className="w-5 h-5 group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform" />}
+                    <span className="relative z-10 flex items-center justify-center gap-2">
+                      {submitted ? 'Inquiry Deployed' : 'Initiate System Audit'}
+                      {!submitted && <span className="group-hover:translate-x-1 transition-transform">→</span>}
                     </span>
                   </button>
                 </div>
@@ -274,6 +258,25 @@ export function ContactContent() {
                   </div>
                 </div>
               ))}
+
+              {/* Full Width Socials Card */}
+              <div className="md:col-span-3 flex flex-col sm:flex-row items-center justify-between px-8 py-6 bg-slate-50/50 border border-foreground/10 rounded-3xl group/social hover:bg-background hover:border-primary/50 hover:shadow-xl transition-all duration-500">
+                <p className="text-[10px] font-black uppercase tracking-widest text-foreground/40 mb-4 sm:mb-0">Connect Socially</p>
+                <div className="flex flex-wrap gap-3">
+                  {socialLinks.map((social, i) => (
+                    <a 
+                      key={i}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 rounded-xl bg-foreground/5 border border-foreground/10 flex items-center justify-center hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 group/icon"
+                      title={social.label}
+                    >
+                      <social.icon className="w-5 h-5 text-foreground/50 group-hover/icon:text-primary group-hover/icon:scale-110 transition-all" />
+                    </a>
+                  ))}
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>

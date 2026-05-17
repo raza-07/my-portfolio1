@@ -74,7 +74,7 @@ export function WorkContent() {
   const project = featuredProjects[currentIndex];
 
   return (
-    <div className="bg-background text-foreground relative">
+    <div className="bg-background text-foreground relative border-t border-foreground/5">
       {/* Pinned Projects Showcase - Controlled by Hover/Wheel */}
       <div 
         ref={containerRef} 
@@ -85,10 +85,12 @@ export function WorkContent() {
           <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
             <div className="flex items-center gap-4 mb-3 animate-fade-in">
               <div className="w-12 h-[1px] bg-primary"></div>
-              <p className="text-[10px] font-black uppercase tracking-[0.5em] text-primary">Case Studies</p>
+              <p className="text-[10px] font-black uppercase tracking-[0.5em] text-primary">PROVEN RESULTS</p>
               <div className="w-12 h-[1px] bg-primary"></div>
             </div>
-            <h2 className="text-3xl md:text-5xl font-serif tracking-normal animate-fade-in uppercase">STRATEGIC DEPLOYMENTS.</h2>
+            <h2 className="text-3xl md:text-5xl font-serif tracking-tight animate-fade-in">
+              Real Products. Real Outcomes. <span className="text-foreground/40">No Fluff.</span>
+            </h2>
           </div>
         </div>
 
@@ -109,7 +111,6 @@ export function WorkContent() {
 
             {/* Strategic Impact Panel (Replaced Image) */}
             <div className="w-full lg:w-[40%] aspect-square md:aspect-[4/5] lg:aspect-square rounded-[3rem] bg-slate-50/50 border border-foreground/10 p-6 md:p-10 flex flex-col justify-between relative overflow-hidden group/panel">
-               <div className="absolute inset-0 bg-grid-pattern opacity-5 text-foreground"></div>
                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-3xl -z-10"></div>
                
                <div className="space-y-8 relative z-10">
@@ -156,12 +157,32 @@ export function WorkContent() {
 
             <div className="w-full lg:w-[55%] space-y-6">
               <div className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-black uppercase tracking-[0.5em] text-foreground/40 group-hover:text-foreground/60 transition-colors">{project.id} of 12</span>
-                  <div className="flex gap-1.5">
-                     {featuredProjects.map((_: any, i: number) => (
-                       <div key={i} className={`w-1.5 h-1.5 rounded-full transition-all duration-500 ${i === currentIndex ? 'bg-primary scale-125 shadow-[0_0_10px_rgba(var(--primary-rgb),0.5)]' : 'bg-foreground/20 hover:bg-foreground/40'}`}></div>
-                     ))}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <span className="text-[10px] font-black uppercase tracking-[0.5em] text-foreground/40 group-hover:text-foreground/60 transition-colors">{project.id} of {featuredProjects.length}</span>
+                  <div className="flex items-center gap-6">
+                    <div className="flex items-center gap-2">
+                      <button 
+                        onClick={prevProject} 
+                        disabled={currentIndex === 0} 
+                        className="w-7 h-7 flex items-center justify-center rounded-full border border-foreground/20 hover:bg-foreground/10 transition-all duration-300 disabled:opacity-30 disabled:pointer-events-none cursor-pointer"
+                        aria-label="Previous Project"
+                      >
+                        <ChevronRight className="w-3.5 h-3.5 rotate-180" />
+                      </button>
+                      <button 
+                        onClick={nextProject} 
+                        disabled={currentIndex === featuredProjects.length - 1} 
+                        className="w-7 h-7 flex items-center justify-center rounded-full border border-foreground/20 hover:bg-foreground/10 transition-all duration-300 disabled:opacity-30 disabled:pointer-events-none cursor-pointer"
+                        aria-label="Next Project"
+                      >
+                        <ChevronRight className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
+                    <div className="flex gap-1.5">
+                       {featuredProjects.map((_: any, i: number) => (
+                         <div key={i} className={`w-1.5 h-1.5 rounded-full transition-all duration-500 ${i === currentIndex ? 'bg-primary scale-125 shadow-[0_0_10px_rgba(var(--primary-rgb),0.5)]' : 'bg-foreground/20 hover:bg-foreground/40'}`}></div>
+                       ))}
+                    </div>
                   </div>
                 </div>
                 <h3 className="text-2xl md:text-5xl font-bold tracking-normal leading-none group-hover:text-primary transition-colors duration-500">{project.title}</h3>
@@ -184,7 +205,7 @@ export function WorkContent() {
                   {project.stack.map((tech: string) => (
                     <span 
                       key={tech} 
-                      className="px-3 py-1.5 bg-foreground/5 border border-foreground/10 rounded-lg text-[9px] font-black uppercase tracking-widest text-foreground/40 hover:bg-primary/20 hover:border-primary/50 hover:text-primary hover:scale-110 transition-all duration-300 cursor-default"
+                      className="px-3 py-1.5 bg-primary/5 border border-primary/30 rounded-lg text-[9px] font-black uppercase tracking-widest text-primary hover:bg-primary/20 hover:border-primary/50 hover:scale-110 transition-all duration-300 cursor-default"
                     >
                       {tech}
                     </span>
@@ -209,11 +230,7 @@ export function WorkContent() {
               </div>
             </div>
 
-            {/* Interaction Hint */}
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-3 opacity-20 group-hover:opacity-100 transition-opacity">
-               <div className="w-1 h-1 bg-foreground rounded-full animate-bounce"></div>
-               <span className="text-[8px] font-black uppercase tracking-[0.4em]">Scroll to see next project</span>
-            </div>
+
           </motion.div>
         </div>
       </div>
