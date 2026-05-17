@@ -64,7 +64,7 @@ export default function Home() {
   return (
     <>
       <Navigation />
-      <main className="min-h-screen bg-background text-foreground selection:bg-primary/30">
+      <main className="min-h-screen bg-background text-foreground selection:bg-primary/30 overflow-x-hidden w-full relative">
         
         {/* Modern Ambient Glow */}
         <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-0">

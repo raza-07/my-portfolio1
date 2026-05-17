@@ -5,8 +5,21 @@ import { motion, useSpring, useMotionValue, useVelocity, useTransform } from 'fr
 
 export const CustomCursor = () => {
   const [isHovering, setIsHovering] = useState(false);
+  const [isMobile, setIsMobile] = useState(true);
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
+
+  useEffect(() => {
+    const checkDevice = () => {
+      const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      const isSmallScreen = window.innerWidth < 1024;
+      setIsMobile(hasTouch || isSmallScreen);
+    };
+
+    checkDevice();
+    window.addEventListener('resize', checkDevice);
+    return () => window.removeEventListener('resize', checkDevice);
+  }, []);
 
   // Velocity for stretching effect
   const velocityX = useVelocity(cursorX);
@@ -56,6 +69,8 @@ export const CustomCursor = () => {
       window.removeEventListener('mouseover', handleMouseOver);
     };
   }, [cursorX, cursorY]);
+
+  if (isMobile) return null;
 
   return (
     <>
