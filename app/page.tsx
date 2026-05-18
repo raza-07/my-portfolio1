@@ -80,56 +80,56 @@ export default function Home() {
               <span suppressHydrationWarning>Only {slots} client slots open for {monthName} {year}</span>
             </div>
 
-            <h1 className="text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl font-serif tracking-normal leading-[1.1] md:leading-[1.1] animate-reveal">
+            <h1 className="text-[1.8rem] xs:text-[2.2rem] sm:text-5xl md:text-6xl lg:text-7xl font-serif tracking-normal leading-[1.1] md:leading-[1.1] animate-reveal">
               We Build Your <span className="text-primary font-bold">SaaS MVP</span> <br />
               Live in 6 Weeks, <br />
               <span className="text-foreground/40">or We Keep Going for Free.</span>
             </h1>
 
-            <p className="text-lg md:text-2xl text-foreground/60 max-w-3xl mx-auto leading-relaxed font-medium animate-fade-in delay-100 px-4 sm:px-0">
+            <p className="text-base md:text-2xl text-foreground/60 max-w-3xl mx-auto leading-relaxed font-medium animate-fade-in delay-100 px-4 sm:px-0">
               <span className="text-foreground font-bold">Non-technical founders:</span> stop spending months finding developers who ghost you or ship broken code. We've built 6 production SaaS platforms from scratch. Yours is next.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6 animate-fade-in delay-200">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6 animate-fade-in delay-200 w-full max-w-md sm:max-w-none mx-auto px-4">
               <Link
                 href="#work"
                 onClick={(e) => {
                   e.preventDefault();
                   document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-background border border-foreground/10 text-foreground font-bold rounded-xl hover:bg-foreground/5 hover:border-foreground/20 transition-all hover:scale-105 active:scale-95 group"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 sm:px-10 sm:py-5 bg-background border border-foreground/10 text-foreground font-bold rounded-xl hover:bg-foreground/5 hover:border-foreground/20 transition-all hover:scale-105 active:scale-95 group text-sm sm:text-base whitespace-nowrap"
               >
                 See our work first
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-primary text-primary-foreground font-bold rounded-xl hover:bg-primary/90 transition-all hover:shadow-[0_0_30px_rgba(59,130,246,0.3)] hover:scale-105 active:scale-95 group"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 sm:px-10 sm:py-5 bg-primary text-primary-foreground font-bold rounded-xl hover:bg-primary/90 transition-all hover:shadow-[0_0_30px_rgba(59,130,246,0.3)] hover:scale-105 active:scale-95 group text-sm sm:text-base whitespace-nowrap"
               >
                 Book a Free SaaS Audit (30 mins) <span className="group-hover:translate-x-1 transition-transform">→</span>
               </Link>
             </div>
 
             {/* Strategic Impact Metrics */}
-            <div className="flex items-center justify-center gap-12 md:gap-24 pt-10 animate-fade-in delay-300">
+            <div className="flex items-center justify-center gap-4 xs:gap-6 sm:gap-12 md:gap-24 pt-10 animate-fade-in delay-300 w-full px-4">
               <div className="text-center group cursor-default">
-                <p className="text-4xl font-bold text-foreground tracking-normal mb-2 group-hover:text-primary group-hover:scale-110 transition-all duration-500 origin-center inline-block">
+                <p className="text-3xl sm:text-4xl font-bold text-foreground tracking-normal mb-2 group-hover:text-primary group-hover:scale-110 transition-all duration-500 origin-center inline-block">
                   <AnimatedCounter value={99.9} decimals={1} />%
                 </p>
-                <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/30">Stability</p>
+                <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.4em] text-foreground/30">Stability</p>
               </div>
-              <div className="w-[1px] h-12 bg-foreground/10"></div>
+              <div className="w-[1px] h-12 bg-foreground/10 shrink-0"></div>
               <div className="text-center group cursor-default">
-                <p className="text-4xl font-bold text-primary tracking-normal mb-2 group-hover:scale-110 transition-all duration-500 origin-center inline-block">
+                <p className="text-3xl sm:text-4xl font-bold text-primary tracking-normal mb-2 group-hover:scale-110 transition-all duration-500 origin-center inline-block">
                   <AnimatedCounter value={8} decimals={0} />+
                 </p>
-                <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/30">Live Systems</p>
+                <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.4em] text-foreground/30">Live Systems</p>
               </div>
-              <div className="w-[1px] h-12 bg-foreground/10"></div>
+              <div className="w-[1px] h-12 bg-foreground/10 shrink-0"></div>
               <div className="text-center group cursor-default">
-                <p className="text-4xl font-bold text-foreground tracking-normal mb-2 group-hover:text-primary group-hover:scale-110 transition-all duration-500 origin-center inline-block">
+                <p className="text-3xl sm:text-4xl font-bold text-foreground tracking-normal mb-2 group-hover:text-primary group-hover:scale-110 transition-all duration-500 origin-center inline-block">
                   <AnimatedCounter value={310} decimals={0} />%
                 </p>
-                <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-foreground/30">ROI</p>
+                <p className="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.15em] sm:tracking-[0.4em] text-foreground/30">ROI</p>
               </div>
             </div>
           </div>

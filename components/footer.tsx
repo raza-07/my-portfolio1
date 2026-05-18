@@ -43,18 +43,18 @@ export function Footer() {
               We architect the neural foundations that automate high-stakes complexity. Schedule a system audit to map your path to 10x operational scale.
             </p>
 
-            <div className="flex flex-col md:flex-row items-center justify-center gap-6 pt-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
               <a 
                 href="https://www.linkedin.com/in/radices-the-roots-8a673b2ba/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full md:w-auto inline-flex items-center justify-center gap-2 px-10 py-5 bg-background border border-foreground/10 text-foreground font-bold rounded-xl hover:bg-foreground/5 hover:border-foreground/20 transition-all hover:scale-105 active:scale-95 group"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 sm:px-10 sm:py-5 bg-background border border-foreground/10 text-foreground font-bold rounded-xl hover:bg-foreground/5 hover:border-foreground/20 transition-all hover:scale-105 active:scale-95 group text-sm sm:text-base"
               >
                 <Linkedin className="w-4 h-4 text-foreground/60 group-hover:text-primary transition-colors" /> LinkedIn
               </a>
               <Link 
                 href="/contact"
-                className="w-full md:w-auto inline-flex items-center justify-center gap-2 px-10 py-5 bg-primary text-primary-foreground font-bold rounded-xl hover:bg-primary/90 transition-all hover:shadow-[0_0_30px_rgba(59,130,246,0.3)] hover:scale-105 active:scale-95 group"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 sm:px-10 sm:py-5 bg-primary text-primary-foreground font-bold rounded-xl hover:bg-primary/90 transition-all hover:shadow-[0_0_30px_rgba(59,130,246,0.3)] hover:scale-105 active:scale-95 group text-sm sm:text-base whitespace-nowrap"
               >
                 Initiate System Audit <span className="group-hover:translate-x-1 transition-transform">→</span>
               </Link>
@@ -71,21 +71,21 @@ export function Footer() {
           </Link>
 
           {/* Tagline & Copyright */}
-          <div className="flex flex-col items-center gap-3">
-            <p className="text-[10px] font-black uppercase tracking-[0.4em] text-foreground/40">
+          <div className="flex flex-col items-center gap-3 text-center w-full px-4">
+            <p className="text-[10px] font-black uppercase tracking-[0.15em] sm:tracking-[0.4em] text-foreground/40 leading-relaxed max-w-full">
               Engineering-first — AI-driven — Results-focused
             </p>
-            <div className="flex flex-col md:flex-row items-center gap-4 text-[10px] font-bold text-foreground/80 tracking-widest uppercase">
-              <span className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
+            <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-[10px] font-bold text-foreground/80 tracking-widest uppercase w-full">
+              <span className="flex items-center justify-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0"></span>
                 HQ: Silicon Valley, CA
               </span>
-              <span className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              <span className="flex items-center justify-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0"></span>
                 +1 (650) 665-6019
               </span>
             </div>
-            <p className="text-[9px] font-bold text-foreground/30 tracking-widest uppercase">
+            <p className="text-[9px] font-bold text-foreground/30 tracking-widest uppercase text-center mt-1">
               &copy; {year} <Link href="/" onClick={handleScrollToTop} className="text-primary/50 hover:text-primary transition-colors font-black">RADICES</Link>. ALL RIGHTS RESERVED.
             </p>
           </div>
