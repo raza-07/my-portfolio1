@@ -47,8 +47,8 @@ export function ContactContent() {
 
   const contactDetails = [
     { icon: Mail, label: 'Email', value: 'radices.technologies@gmail.com', href: 'mailto:radices.technologies@gmail.com' },
-    { icon: Phone, label: 'Phone (USA)', value: '+1 (650) 665-6019', href: 'tel:+16506656019' },
-    { icon: MapPin, label: 'Global HQ', value: 'Silicon Valley, CA', href: '#' },
+    { icon: Phone, label: 'Phone', value: '+1 (650) 665-6019', href: 'tel:+16506656019' },
+    { icon: MapPin, label: 'Philadelphia, PA', value: 'USA', href: '#' },
   ];
 
   const socialLinks = [
@@ -94,7 +94,7 @@ export function ContactContent() {
                     href={detail.href}
                     className="group flex items-center gap-6 p-4 -ml-4 rounded-2xl hover:bg-foreground/5 transition-all duration-300"
                   >
-                    <div className="w-12 h-12 rounded-xl bg-foreground/5 border border-foreground/10 flex items-center justify-center group-hover:border-primary/50 group-hover:bg-primary/10 transition-all">
+                    <div className="w-12 h-12 rounded-xl bg-foreground/5 border border-foreground/10 flex items-center justify-center group-hover:border-primary/50 group-hover:bg-primary/10 transition-all shrink-0">
                       <detail.icon className="w-5 h-5 text-foreground/70 group-hover:text-primary transition-colors" />
                     </div>
                     <div>
@@ -141,7 +141,7 @@ export function ContactContent() {
               <form onSubmit={handleSubmit} className="space-y-8">
                 <div className="space-y-5">
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-[0.2em] text-foreground/30 ml-4">Identity</label>
+                    <label className="text-[10px] font-black uppercase tracking-[0.2em] text-foreground/30 ml-4">Name</label>
                     <input 
                       required
                       type="text" 
@@ -154,7 +154,7 @@ export function ContactContent() {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-[0.2em] text-foreground/30 ml-4">Communication</label>
+                    <label className="text-[10px] font-black uppercase tracking-[0.2em] text-foreground/30 ml-4">Email</label>
                     <input 
                       required
                       type="email" 
@@ -167,7 +167,7 @@ export function ContactContent() {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-[0.2em] text-foreground/30 ml-4">Strategic Service</label>
+                    <label className="text-[10px] font-black uppercase tracking-[0.2em] text-foreground/30 ml-4">Select Service</label>
                     <div className="relative group/select">
                       <select 
                         required
@@ -189,7 +189,7 @@ export function ContactContent() {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-[0.2em] text-foreground/30 ml-4">The Challenge</label>
+                    <label className="text-[10px] font-black uppercase tracking-[0.2em] text-foreground/30 ml-4">Your Query</label>
                     <textarea 
                       required
                       name="message"
@@ -202,7 +202,7 @@ export function ContactContent() {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase tracking-[0.2em] text-foreground/30 ml-4">Secure Uplink Key</label>
+                    <label className="text-[10px] font-black uppercase tracking-[0.2em] text-foreground/30 ml-4">Security Code</label>
                     <div className="flex gap-4">
                       <div className="flex-1">
                         <input 

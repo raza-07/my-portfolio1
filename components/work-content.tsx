@@ -211,10 +211,10 @@ export function WorkContent() {
                     </span>
                   ))}
                 </div>
-                <div className="flex items-center gap-10">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6 w-full sm:w-auto">
                   <Link 
                     href={`/work/${project.id}`}
-                    className="inline-flex items-center gap-4 text-[10px] font-black uppercase tracking-[0.3em] text-primary-foreground bg-primary px-8 py-4 rounded-xl hover:bg-primary/80 hover:scale-105 transition-all duration-300 group/case shadow-[0_0_20px_rgba(132,204,22,0.2)]"
+                    className="inline-flex items-center justify-center gap-4 text-[10px] font-black uppercase tracking-[0.3em] text-primary-foreground bg-primary px-8 py-4 rounded-xl hover:bg-primary/80 hover:scale-105 transition-all duration-300 group/case shadow-[0_0_20px_rgba(132,204,22,0.2)] whitespace-nowrap"
                   >
                     View Case Study <ArrowUpRight className="w-4 h-4 group-hover/case:-translate-y-1 group-hover/case:translate-x-1 transition-transform" />
                   </Link>
@@ -222,7 +222,7 @@ export function WorkContent() {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-4 text-[10px] font-black uppercase tracking-[0.3em] text-foreground/70 border border-foreground/10 px-8 py-4 rounded-xl hover:bg-foreground/5 hover:border-foreground/20 hover:text-foreground hover:scale-105 transition-all duration-300 group/link"
+                    className="inline-flex items-center justify-center gap-4 text-[10px] font-black uppercase tracking-[0.3em] text-foreground/70 border border-foreground/10 px-8 py-4 rounded-xl hover:bg-foreground/5 hover:border-foreground/20 hover:text-foreground hover:scale-105 transition-all duration-300 group/link whitespace-nowrap"
                   >
                     Launch System <ChevronRight className="w-4 h-4 group-hover/link:translate-x-2 transition-transform" />
                   </a>

@@ -78,7 +78,7 @@ export function Footer() {
             <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-[10px] font-bold text-foreground/80 tracking-widest uppercase w-full">
               <span className="flex items-center justify-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0"></span>
-                HQ: Silicon Valley, CA
+                HQ: Philadelphia, PA
               </span>
               <span className="flex items-center justify-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0"></span>
