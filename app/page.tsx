@@ -87,7 +87,7 @@ export default function Home() {
             </h1>
 
             <p className="text-base md:text-2xl text-foreground/60 max-w-3xl mx-auto leading-relaxed font-medium animate-fade-in delay-100 px-4 sm:px-0">
-              <span className="text-foreground font-bold">Non-technical founders:</span> stop spending months finding developers who ghost you or ship broken code. We've built 6 production SaaS platforms from scratch. Yours is next.
+              <span className="text-foreground font-bold">Non-technical founders:</span> stop spending months finding developers who ghost you or ship broken code. We've built 8 production SaaS platforms from scratch. Yours is next.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6 animate-fade-in delay-200 w-full max-w-md sm:max-w-none mx-auto px-4">
