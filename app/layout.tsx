@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { CustomCursor } from "@/components/custom-cursor"
+import { Toaster } from "@/components/ui/sonner"
 import type { Metadata } from "next"
 import "./globals.css"
 
@@ -29,6 +30,7 @@ export default function RootLayout({
       <body className={`font-inter antialiased bg-background text-foreground relative overflow-x-hidden`}>
         <CustomCursor />
         {children}
+        <Toaster />
         <Analytics />
       </body>
     </html>

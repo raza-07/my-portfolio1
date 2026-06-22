@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Mail, Phone, MapPin, Linkedin, Twitter, Github, Send, Instagram, Plus } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { toast } from 'sonner';
 
 export function ContactContent() {
   const [formData, setFormData] = useState({
@@ -14,6 +15,7 @@ export function ContactContent() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [securityCode, setSecurityCode] = useState('');
   const [userCode, setUserCode] = useState('');
 
@@ -26,23 +28,93 @@ export function ContactContent() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (userCode !== securityCode) {
-      alert('Invalid Security Key. Please verify the uplink code.');
+      toast.error('Invalid Security Key. Please verify the uplink code.');
       return;
     }
-    const { name, email, subject, message } = formData;
-    
-    const mailtoLink = `mailto:radices.technologies@gmail.com?subject=${encodeURIComponent(
-      subject || `Message from ${name}`
-    )}&body=${encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-    )}`;
 
-    window.location.href = mailtoLink;
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
+    setLoading(true);
+    
+    const web3formsKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
+    let promise;
+
+    if (web3formsKey) {
+      // POST directly to Web3Forms from the browser (free plan requirement)
+      promise = fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: web3formsKey,
+          subject: `New Inquiry: ${formData.service || 'General'} from ${formData.name}`,
+          from_name: 'Radices Portfolio Uplink',
+          "Client Name": formData.name,
+          "Client Email": formData.email,
+          "Selected Service": formData.service || 'General Inquiry',
+          "Client Message": formData.message,
+        }),
+      });
+    } else {
+      // POST to local API route (for secure SMTP/Nodemailer)
+      promise = fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+    }
+
+    toast.promise(promise, {
+      loading: 'Transmitting inquiry...',
+      success: async (res) => {
+        setLoading(false);
+        const data = await res.json();
+        if (!res.ok || data.success === false) {
+          throw new Error(data.error || data.message || 'Failed to submit form');
+        }
+        setFormData({
+          name: '',
+          email: '',
+          service: '',
+          subject: '',
+          message: '',
+        });
+        setUserCode('');
+        setSecurityCode(Math.floor(1000 + Math.random() * 9000).toString());
+        setSubmitted(true);
+        setTimeout(() => setSubmitted(false), 5000);
+        return 'Inquiry received successfully!';
+      },
+      error: (err: any) => {
+        setLoading(false);
+        
+        // Fallback to mailto if delivery is not configured
+        const { name, email, service, message } = formData;
+        const mailtoLink = `mailto:radices.technologies@gmail.com?subject=${encodeURIComponent(
+          `Inquiry: ${service || 'General'} from ${name}`
+        )}&body=${encodeURIComponent(
+          `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+        )}`;
+
+        toast('Send via local mail client instead?', {
+          description: err.message || 'Contact transmission is not fully configured.',
+          action: {
+            label: 'Open Mail Client',
+            onClick: () => {
+              window.location.href = mailtoLink;
+            },
+          },
+          duration: 10000,
+        });
+
+        return `Transmission Failed: ${err.message || 'Check configuration'}`;
+      }
+    });
   };
 
   const contactDetails = [
@@ -224,11 +296,24 @@ export function ContactContent() {
                 <div className="pt-2">
                   <button 
                     type="submit"
-                    className="w-full inline-flex items-center justify-center gap-2 px-10 py-5 bg-primary text-primary-foreground font-bold rounded-xl hover:bg-primary/90 transition-all hover:shadow-[0_0_30px_rgba(59,130,246,0.3)] hover:scale-105 active:scale-95 group"
+                    disabled={loading}
+                    className="w-full inline-flex items-center justify-center gap-2 px-10 py-5 bg-primary text-primary-foreground font-bold rounded-xl hover:bg-primary/90 transition-all hover:shadow-[0_0_30px_rgba(59,130,246,0.3)] hover:scale-105 active:scale-95 group disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:shadow-none"
                   >
                     <span className="relative z-10 flex items-center justify-center gap-2">
-                      {submitted ? 'Inquiry Deployed' : 'Initiate System Audit'}
-                      {!submitted && <span className="group-hover:translate-x-1 transition-transform">→</span>}
+                      {loading ? (
+                        <>
+                          <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                          Transmitting...
+                        </>
+                      ) : submitted ? (
+                        'Inquiry Deployed'
+                      ) : (
+                        'Initiate System Audit'
+                      )}
+                      {!loading && !submitted && <span className="group-hover:translate-x-1 transition-transform">→</span>}
                     </span>
                   </button>
                 </div>
