@@ -18,7 +18,8 @@ export async function POST(request: Request) {
     const port = process.env.SMTP_PORT;
     const user = process.env.SMTP_USER;
     const pass = process.env.SMTP_PASS;
-    const receiver = process.env.CONTACT_RECEIVER || 'radices.technologies@gmail.com';
+    const receiver = process.env.CONTACT_RECEIVER || 'arrazarao@gmail.com';
+    const web3formsKey = process.env.WEB3FORMS_KEY || process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
 
     // SMTP / Nodemailer Submission
     if (host && port && user && pass) {
@@ -81,11 +82,41 @@ ${message}
       return NextResponse.json({ success: true, message: 'Inquiry transmitted successfully.' });
     }
 
-    // Default error: SMTP config is not present
+    // Web3Forms Fallback Submission
+    if (web3formsKey) {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: web3formsKey,
+          subject: `New Inquiry: ${service || 'General'} from ${name}`,
+          from_name: 'Radices Portfolio Uplink',
+          "Client Name": name,
+          "Client Email": email,
+          "Selected Service": service || 'General Inquiry',
+          "Client Message": message,
+        }),
+      });
+
+      const data = await response.json();
+      if (response.ok && data.success) {
+        return NextResponse.json({ success: true, message: 'Inquiry transmitted successfully via Web3Forms.' });
+      } else {
+        return NextResponse.json(
+          { error: 'Web3Forms transmission failed.', details: data.message || 'Unknown Web3Forms error' },
+          { status: response.status || 400 }
+        );
+      }
+    }
+
+    // Default error: SMTP & Web3Forms are not configured
     return NextResponse.json(
       { 
-        error: 'SMTP server is not configured.',
-        details: 'Please define SMTP_HOST, SMTP_PORT, SMTP_USER, and SMTP_PASS in your environment variables (.env.local).'
+        error: 'Email service is not configured.',
+        details: 'Please define either SMTP variables (SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS) or Web3Forms key (NEXT_PUBLIC_WEB3FORMS_KEY or WEB3FORMS_KEY) in your environment variables (Vercel settings or local .env).'
       },
       { status: 501 }
     );

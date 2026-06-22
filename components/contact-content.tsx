@@ -88,7 +88,7 @@ export function ContactContent() {
         setSecurityCode(Math.floor(1000 + Math.random() * 9000).toString());
         setSubmitted(true);
         setTimeout(() => setSubmitted(false), 5000);
-        return 'Inquiry received successfully!';
+        return 'Inquiry sent successfully!';
       },
       error: (err: any) => {
         setLoading(false);
